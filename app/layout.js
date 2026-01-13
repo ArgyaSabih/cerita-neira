@@ -14,17 +14,27 @@ import {
 } from "@/utils/helpers/font";
 
 export const metadata = {
-  title: "Cerita Neira",
-  description: "KKN PPM UGM Cerita Neira"
+  title: "Cerita Neira | KKN-PPM UGM 2026",
+  description:
+    "Website resmi KKN-PPM UGM 2026 di Banda Neira, Maluku. Bergabunglah bersama kami dalam perjalanan bersejarah di Negeri Pala.",
+  keywords: ["KKN", "UGM", "Banda Neira", "Maluku", "Cerita Neira", "KKN-PPM"],
+  authors: [{name: "Tim Cerita Neira"}],
+  openGraph: {
+    title: "Cerita Neira | KKN-PPM UGM 2026",
+    description: "Website resmi KKN-PPM UGM 2026 di Banda Neira, Maluku",
+    type: "website"
+  }
 };
 
 export const viewport = {
-  themeColor: "#FFFFFF"
+  themeColor: "#FFF5E8",
+  width: "device-width",
+  initialScale: 1
 };
 
 export default function RootLayout({children}) {
   return (
-    <html lang="id">
+    <html lang="id" className="scroll-smooth">
       <body
         className={cn(
           PlusJakartaSansBold.variable,
