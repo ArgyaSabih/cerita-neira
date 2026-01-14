@@ -3,6 +3,8 @@ import {cn} from "@/utils/helpers/cn";
 import AnimationProvider from "@/utils/contexts/AnimationProvider";
 import QueryProvider from "@/utils/contexts/QueryProvider";
 import Script from "next/script";
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 import {
   PlusJakartaSansBold,
@@ -47,7 +49,9 @@ export default function RootLayout({children}) {
         )}
       >
         <QueryProvider>
+          <Navbar />
           <AnimationProvider>{children}</AnimationProvider>
+          <Footer />
         </QueryProvider>
 
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-3WNDZLJT9J" />
