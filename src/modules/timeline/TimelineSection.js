@@ -178,28 +178,35 @@ const TimelineSection = ({className}) => {
     <section
       ref={sectionRef}
       id="timeline"
-      className={cn("relative min-h-screen bg-neutral-100 py-20 md:py-32 overflow-hidden", className)}
+      className={cn(
+        "relative min-h-screen bg-gradient-to-b from-cream-300 via-cream-200 to-neutral-100 py-20 md:py-32",
+        className
+      )}
     >
       {/* Background Decorations */}
       <div className="absolute inset-0 opacity-5 pattern-batik" />
 
       {/* Floating decorations */}
-      <div
-        className="absolute w-16 h-16 top-20 left-10 opacity-30"
-        style={{
-          transform: `translateY(${scrollProgress * 50}px) rotate(${scrollProgress * 30}deg)`
-        }}
-      >
+      <div className="absolute w-28 h-28 md:w-48 md:h-48 animate-spin lg:top-12 top-24 left-10 lg:left-40 opacity-30">
         <Image src="/assets/bunga-1.webp" alt="" fill className="object-contain" />
       </div>
 
       <div
-        className="absolute w-20 h-20 bottom-40 right-10 opacity-30"
+        className="absolute w-28 h-28 bottom-32 right-60 opacity-30"
         style={{
-          transform: `translateY(${-scrollProgress * 40}px) rotate(${-scrollProgress * 20}deg)`
+          transform: `translateY(${-scrollProgress * 150}px) rotate(${-scrollProgress * 120}deg)`
         }}
       >
         <Image src="/assets/bunga-4.webp" alt="" fill className="object-contain" />
+      </div>
+
+      <div
+        className="absolute z-10 w-60 h-60 -right-12 -bottom-4 md:-right-28 md:-bottom-20 md:w-96 md:h-96"
+        style={{
+          transform: `rotate(-20deg) translateY(${scrollProgress * 150}px)`
+        }}
+      >
+        <Image src="/assets/ring-pala.webp" alt="" fill className="object-contain" />
       </div>
 
       {/* Container */}

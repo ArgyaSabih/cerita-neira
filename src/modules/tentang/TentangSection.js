@@ -46,7 +46,7 @@ const TentangSection = ({className}) => {
   // Parallax calculations
   const imageX = Math.min(scrollY * 0.1, 50);
   const textX = Math.min(scrollY * 0.05, 30);
-  const decorRotate = scrollY * 0.02;
+  const decorRotate = scrollY * 0.05;
   const waveY = scrollY * -0.08;
 
   return (
@@ -104,16 +104,25 @@ const TentangSection = ({className}) => {
 
       {/* Decorative Flowers */}
       <div
+        className="absolute top-0 w-24 h-24 left-10 sm:left-20 opacity-20"
+        style={{
+          transform: `rotate(${-decorRotate}deg) translateY(${-scrollY * 0.05}px)`
+        }}
+      >
+        <Image src="/assets/bunga-3.webp" alt="" fill className="object-contain" />
+      </div>
+
+      <div
         className="absolute w-20 h-20 top-10 right-10 md:w-32 md:h-32 opacity-30"
         style={{
-          transform: `rotate(${decorRotate}deg)`
+          transform: `rotate(${decorRotate}deg) translateY(${-scrollY * 0.05}px)`
         }}
       >
         <Image src="/assets/bunga-5.webp" alt="Decoration" fill className="object-contain" />
       </div>
 
       <div
-        className="absolute w-16 h-16 bottom-20 left-10 md:w-24 md:h-24 opacity-30"
+        className="absolute w-20 h-20 bottom-24 md:bottom-40 left-10 md:w-28 md:h-28 opacity-30"
         style={{
           transform: `rotate(${-decorRotate}deg)`
         }}
@@ -123,21 +132,18 @@ const TentangSection = ({className}) => {
 
       {/* Main Content Container */}
       <div className="container relative z-10 px-4 mx-auto md:px-8 lg:px-16">
-        <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-16">
+        <div className="flex flex-col items-center gap-8 xl:flex-row lg:gap-16">
           {/* Image Side */}
           <div
             className={cn(
-              "relative w-full lg:w-1/2 aspect-[4/3] rounded-3xl overflow-hidden",
+              "relative w-full lg:w-3/4 xl:w-1/2 aspect-[4/3] rounded-3xl overflow-visible",
               "transition-all duration-1000 ease-out",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
             )}
-            style={{
-              transform: `translateX(${-imageX}px)`
-            }}
           >
             {/* Frame decoration */}
-            <div className="absolute inset-0 z-10 border-4 pointer-events-none border-cream-500/30 rounded-3xl" />
-            <div className="absolute z-0 -inset-2 bg-gradient-to-br from-teal-500/30 to-rose-500/30 rounded-3xl blur-xl" />
+            <div className="absolute inset-0 z-10 border-2 pointer-events-none border-cream-500 rounded-3xl" />
+            <div className="absolute z-0 -inset-2 bg-gradient-to-br from-cream-500/30 to-rose-500/30 rounded-3xl blur-xl" />
 
             <div className="relative w-full h-full overflow-hidden z-5 rounded-3xl">
               <Image
@@ -150,7 +156,7 @@ const TentangSection = ({className}) => {
 
             {/* Floating Pala */}
             <div
-              className="absolute z-20 w-20 h-20 -bottom-5 -right-5 md:w-28 md:h-28 animate-float"
+              className="absolute z-20 w-20 h-20 -bottom-8 drop-shadow-sm drop-shadow-teal-400 -right-8 md:w-28 md:h-28 animate-float"
               style={{
                 transform: `translateY(${-scrollY * 0.05}px)`
               }}
@@ -162,13 +168,10 @@ const TentangSection = ({className}) => {
           {/* Text Side */}
           <div
             className={cn(
-              "w-full lg:w-1/2 text-center lg:text-left",
+              "w-full xl:w-1/2 text-center xl:text-left",
               "transition-all duration-1000 ease-out delay-300",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
             )}
-            style={{
-              transform: `translateX(${textX}px)`
-            }}
           >
             {/* Section Label */}
             <span className="inline-block px-4 py-1 mb-4 text-sm rounded-full bg-cream-500/20 text-cream-100 font-plusjakartasans-medium">
@@ -176,7 +179,7 @@ const TentangSection = ({className}) => {
             </span>
 
             {/* Main Heading - Local Dialect */}
-            <h2 className="mb-6 text-4xl leading-tight font-auromiya sm:text-5xl md:text-6xl lg:text-7xl text-cream-100">
+            <h2 className="mb-6 text-4xl leading-tight font-auromiya sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl text-cream-100">
               Katong Bacarita
               <span className="block text-teal-400">Par Banda Neira</span>
             </h2>
@@ -192,22 +195,6 @@ const TentangSection = ({className}) => {
               Bersama-sama, kita akan menulis cerita baru untuk negeri Pala—melestarikan budaya, memberdayakan
               potensi, dan membangun harapan untuk generasi mendatang.
             </p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 md:gap-8">
-              <div className="text-center lg:text-left">
-                <div className="text-3xl text-teal-400 font-auromiya md:text-4xl">30+</div>
-                <div className="text-sm text-cream-300 font-plusjakartasans-regular">Mahasiswa</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-auromiya md:text-4xl text-rose-400">45</div>
-                <div className="text-sm text-cream-300 font-plusjakartasans-regular">Hari Pengabdian</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-auromiya md:text-4xl text-cream-100">10+</div>
-                <div className="text-sm text-cream-300 font-plusjakartasans-regular">Program Kerja</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -223,7 +210,7 @@ const TentangSection = ({className}) => {
         >
           <path
             d="M0 60L48 55C96 50 192 40 288 35C384 30 480 30 576 40C672 50 768 70 864 75C960 80 1056 70 1152 55C1248 40 1344 20 1392 10L1440 0V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z"
-            fill="#FFFFFF"
+            fill="#FFF8F1"
           />
         </svg>
       </div>

@@ -30,12 +30,17 @@ module.exports = {
         auromiya: ["var(--font-auromiya)"]
       },
       animation: {
+        spin: "spin-slow 12s linear infinite",
         float: "float 6s ease-in-out infinite",
         "float-slow": "floatSlow 8s ease-in-out infinite",
         swim: "swim 12s ease-in-out infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite"
       },
       keyframes: {
+        spin: {
+          from: {transform: "rotate(0deg)"},
+          to: {transform: "rotate(360deg)"}
+        },
         float: {
           "0%, 100%": {transform: "translateY(0px)"},
           "50%": {transform: "translateY(-20px)"}

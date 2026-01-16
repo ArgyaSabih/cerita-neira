@@ -42,7 +42,7 @@ const HeroSection = ({className}) => {
             src="/assets/bg-hero.webp"
             alt="Banda Neira Background"
             priority
-            className="absolute top-0 right-0 object-cover object-bottom w-full h-full pointer-events-none"
+            className="absolute top-0 right-0 object-cover object-bottom w-full h-full pointer-events-none "
             fill
           />
 
@@ -135,7 +135,7 @@ const HeroSection = ({className}) => {
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
             )}
           >
-            KKN-PPM UGM PERIODE II TAHUN 2026
+            KKN-PPM UGM BANDA NEIRA
           </div>
           <p className="text-sm text-neutral-100 md:text-xl font-plusjakartasans-regular">
             Desa Rajawali & Desa TanaRatah, Kec. Banda, Maluku Tengah

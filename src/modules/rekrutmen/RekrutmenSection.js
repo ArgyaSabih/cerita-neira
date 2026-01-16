@@ -142,7 +142,7 @@ const RekrutmenSection = ({className}) => {
       ref={sectionRef}
       id="rekrutmen"
       className={cn(
-        "relative min-h-screen bg-gradient-to-b from-neutral-100 via-cream-200 to-cream-300 py-20 md:py-32 overflow-hidden",
+        "relative min-h-screen bg-gradient-to-b from-neutral-100 via-cream-200 to-cream-300 py-20 md:py-32 overflow-visible",
         className
       )}
     >
@@ -151,18 +151,18 @@ const RekrutmenSection = ({className}) => {
 
       {/* Floating Decorations */}
       <div
-        className="absolute w-24 h-24 top-20 right-20 opacity-20"
+        className="absolute w-24 h-24 bottom-20 right-20 opacity-20"
         style={{
-          transform: `translateY(${scrollProgress * 30}px) rotate(${scrollProgress * 15}deg)`
+          transform: `translateY(${scrollProgress * 100}px) rotate(${scrollProgress * 75}deg)`
         }}
       >
         <Image src="/assets/bunga-3.webp" alt="" fill className="object-contain" />
       </div>
 
       <div
-        className="absolute w-20 h-20 bottom-40 left-10 opacity-20"
+        className="absolute w-20 h-20 top-56 left-10 opacity-20"
         style={{
-          transform: `translateY(${-scrollProgress * 40}px)`
+          transform: `translateY(${-scrollProgress * 200}px) rotate(${scrollProgress * 55}deg)`
         }}
       >
         <Image src="/assets/bunga-5.webp" alt="" fill className="object-contain" />
