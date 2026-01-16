@@ -3,7 +3,7 @@
 import {useEffect, useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import {cn} from "@/utils/helpers/cn";
-import {FiMenu, FiX} from "react-icons/fi";
+import Image from "next/image";
 
 const navLinks = [
   {id: 1, name: "Home", href: "#home"},
@@ -92,10 +92,10 @@ const Navbar = ({className}) => {
         className={cn(
           "mx-auto transition-all duration-500 ease-out py-3",
           isScrolled
-            ? "max-w-[1000px] bg-wine-500/90 backdrop-blur-sm shadow-xl drop-shadow-lg rounded-full px-6"
-            : "container px-4 md:px-8 lg:px-16 bg-transparent",
+            ? "max-w-[1000px] bg-cream-100 backdrop-blur-sm shadow-xl drop-shadow-lg rounded-full px-6"
+            : "container px-4 md:px-8 lg:px-16",
           isMobileMenuOpen
-            ? "max-w-[1000px] bg-wine-500/90 backdrop-blur-sm shadow-xl drop-shadow-lg rounded-full px-6"
+            ? "max-w-[1000px] bg-cream-100 backdrop-blur-sm shadow-xl drop-shadow-lg rounded-full px-6"
             : ""
         )}
       >
@@ -104,10 +104,29 @@ const Navbar = ({className}) => {
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="text-2xl transition-all duration-300 font-auromiya md:text-3xl"
+            className="relative flex items-center h-full gap-2 text-2xl transition-all duration-300 font-auromiya md:text-3xl"
           >
-            <span className={cn(isScrolled ? "text-cream-100" : "text-cream-300")}>Cerita</span>
-            <span className={cn(isScrolled ? "text-teal-300" : "text-teal-500")}>Neira</span>
+            <Image
+              src="/favicon/android-chrome-192x192.png"
+              alt="Cerita Neira logo"
+              width={100}
+              height={100}
+              className={cn("w-10 h-10 md:w-12 md:h-12 rounded-full object-cover")}
+            />
+            <div className="relative flex items-center gap-1 mt-2">
+              <div
+                className={cn(
+                  "text-cream-100",
+                  isMobileMenuOpen ? "text-wine-500" : "text-wine-500",
+                  isScrolled ? "text-wine-500" : "text-cream-100"
+                )}
+              >
+                Cerita
+              </div>
+              <div className={cn("text-teal-600", isMobileMenuOpen ? "text-teal-600" : "text-teal-600")}>
+                Neira
+              </div>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -119,12 +138,8 @@ const Navbar = ({className}) => {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={cn(
                   "relative font-plusjakartasans-medium text-sm transition-all duration-300",
-                  isScrolled ? "hover:text-teal-300" : "hover:text-teal-500",
-                  activeSection === link.href.replace("#", "")
-                    ? isScrolled
-                      ? "text-teal-300"
-                      : "text-teal-400"
-                    : "text-cream-200"
+                  isScrolled ? "hover:text-teal-600" : "hover:text-teal-600 text-cream-100",
+                  activeSection === link.href.replace("#", "") ? "text-teal-600" : ""
                 )}
               >
                 {link.name}
@@ -132,9 +147,7 @@ const Navbar = ({className}) => {
                   className={cn(
                     "absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 rounded-full transition-all duration-500 ease-out",
                     activeSection === link.href.replace("#", "")
-                      ? isScrolled
-                        ? "bg-teal-300 w-full opacity-100"
-                        : "bg-teal-500 w-full opacity-100"
+                      ? "bg-teal-600 w-full opacity-100"
                       : "w-0 opacity-0"
                   )}
                 />
@@ -149,8 +162,8 @@ const Navbar = ({className}) => {
             className={cn(
               "hidden lg:inline-flex items-center px-5 py-2 rounded-full font-plusjakartasans-semibold text-sm transition-all duration-300",
               isScrolled
-                ? "bg-cream-100 text-wine-600 hover:bg-cream-200 hover:scale-105"
-                : "bg-cream-100 text-wine-500 hover:bg-cream-200"
+                ? "bg-wine-600 text-cream-100 hover:bg-wine-500 hover:scale-105"
+                : "bg-wine-600 text-cream-100 hover:bg-wine-500"
             )}
           >
             Daftar Sekarang
@@ -168,28 +181,34 @@ const Navbar = ({className}) => {
               className={cn(
                 "h-0.5 w-full transition-all bg-cream-100 duration-300",
                 isMobileMenuOpen
-                  ? "absolute top-0 right-0 bottom-0 left-0 m-auto opacity-0"
-                  : "relative opacity-100"
+                  ? "absolute top-0 right-0 bottom-0 left-0 bg-wine-500 m-auto opacity-0"
+                  : "relative opacity-100",
+                isScrolled ? "bg-wine-500" : "bg-cream-100"
               )}
             />
             <span
               className={cn(
                 "h-0.5 w-full bg-cream-100 transition-all duration-500",
-                isMobileMenuOpen ? "absolute top-0 right-0 bottom-0 left-0 m-auto rotate-315" : "relative"
+                isMobileMenuOpen
+                  ? "absolute top-0 bg-wine-500 right-0 bottom-0 left-0 m-auto rotate-315"
+                  : "relative",
+                isScrolled ? "bg-wine-500" : "bg-cream-100"
               )}
             />
             <span
               className={cn(
                 "absolute h-0.5 w-full bg-cream-100 transition-all duration-500",
                 isMobileMenuOpen
-                  ? "top-0 right-0 bottom-0 left-0 m-auto rotate-45 opacity-100"
-                  : "opacity-100"
+                  ? "top-0 right-0 bottom-0 bg-wine-500 left-0 m-auto rotate-45 opacity-100"
+                  : "opacity-100",
+                isScrolled ? "bg-wine-500" : "bg-cream-100"
               )}
             />
             <span
               className={cn(
                 "h-0.5 w-full bg-cream-100 transition-all duration-300",
-                isMobileMenuOpen ? "absolute opacity-0" : "relative opacity-100"
+                isMobileMenuOpen ? "absolute bg-wine-500 opacity-0" : "relative opacity-100",
+                isScrolled ? "bg-wine-500" : "bg-cream-100"
               )}
             />
           </button>
@@ -199,7 +218,7 @@ const Navbar = ({className}) => {
         <div
           className={cn(
             "lg:hidden absolute left-0 right-0 transition-all duration-400 overflow-hidden",
-            "top-full mt-2 mx-2 bg-wine-700/95 backdrop-blur-xl rounded-2xl shadow-xl drop-shadow-2xl border border-wine-600/30",
+            "top-full mt-2 mx-2 bg-cream-100 backdrop-blur-sm rounded-2xl shadow-xl drop-shadow-2xl border border-wine-200",
             isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           )}
         >
@@ -213,8 +232,8 @@ const Navbar = ({className}) => {
                   className={cn(
                     "py-2 px-4 rounded-lg font-plusjakartasans-medium transition-all duration-300",
                     activeSection === link.href.replace("#", "")
-                      ? "bg-teal-500/30 text-teal-300"
-                      : "text-cream-200 hover:bg-wine-600/50"
+                      ? "bg-teal-100 text-teal-600"
+                      : "text-wine-500 hover:bg-wine-50"
                   )}
                 >
                   {link.name}
@@ -225,7 +244,7 @@ const Navbar = ({className}) => {
                 onClick={(e) => handleNavClick(e, "#rekrutmen")}
                 className={cn(
                   "px-4 py-3 mt-2 text-center transition-colors rounded-xl font-plusjakartasans-semibold",
-                  "bg-cream-100 text-wine-600 hover:bg-cream-200"
+                  "bg-wine-600 text-cream-100 hover:bg-wine-500"
                 )}
               >
                 Daftar Sekarang

@@ -108,7 +108,9 @@ const HeroSection = ({className}) => {
             <div
               className="absolute delay-700 w-14 h-14 -z-10 -right-[1.2rem] -top-[0.8rem] md:-right-[2.7rem] md:-top-[1.5rem] md:w-28 md:h-28"
               style={{
-                opacity: decorOpacity
+                opacity: decorOpacity,
+                transition: "opacity 260ms linear, transform 300ms cubic-bezier(.22,1,.36,1)",
+                willChange: "transform, opacity"
               }}
             >
               <Image src="/assets/bunga-4.webp" alt="Decorative Flower" fill className="object-contain" />
@@ -133,29 +135,11 @@ const HeroSection = ({className}) => {
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
             )}
           >
-            KKN-PPN UGM Banda Neira
+            KKN-PPM UGM PERIODE II TAHUN 2026
           </div>
-        </div>
-
-        {/* Wave Transition to Next Section */}
-        <div
-          className="absolute bottom-0 left-0 right-0 z-30"
-          style={{
-            transform: `translateY(${waveY * 0.2}px)`
-          }}
-        >
-          <svg
-            viewBox="0 0 1440 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0 120L48 110C96 100 192 80 288 65C384 50 480 40 576 45C672 50 768 70 864 75C960 80 1056 70 1152 60C1248 50 1344 40 1392 35L1440 30V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z"
-              fill="#7B1F59"
-            />
-          </svg>
+          <p className="text-sm text-neutral-100 md:text-xl font-plusjakartasans-regular">
+            Desa Rajawali & Desa TanaRatah, Kec. Banda, Maluku Tengah
+          </p>
         </div>
       </section>
     </DefaultLayout>

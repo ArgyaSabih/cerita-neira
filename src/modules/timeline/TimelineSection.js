@@ -178,10 +178,10 @@ const TimelineSection = ({className}) => {
     <section
       ref={sectionRef}
       id="timeline"
-      className={cn("relative min-h-screen bg-cream-500 py-20 md:py-32 overflow-hidden", className)}
+      className={cn("relative min-h-screen bg-neutral-100 py-20 md:py-32 overflow-hidden", className)}
     >
       {/* Background Decorations */}
-      <div className="absolute inset-0 opacity-10 pattern-batik" />
+      <div className="absolute inset-0 opacity-5 pattern-batik" />
 
       {/* Floating decorations */}
       <div
@@ -254,22 +254,6 @@ const TimelineSection = ({className}) => {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Wave Transition to Next Section */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 40L60 50C120 60 240 80 360 85C480 90 600 80 720 65C840 50 960 30 1080 25C1200 20 1320 30 1380 35L1440 40V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="#46ABB7"
-          />
-        </svg>
       </div>
     </section>
   );

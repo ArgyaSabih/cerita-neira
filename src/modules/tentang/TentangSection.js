@@ -47,13 +47,56 @@ const TentangSection = ({className}) => {
   const imageX = Math.min(scrollY * 0.1, 50);
   const textX = Math.min(scrollY * 0.05, 30);
   const decorRotate = scrollY * 0.02;
+  const waveY = scrollY * -0.08;
 
   return (
     <section
       ref={sectionRef}
       id="tentang"
-      className={cn("relative min-h-screen bg-wine-500 overflow-hidden py-20 md:py-32", className)}
+      className={cn("relative min-h-screen bg-wine-500 py-20 md:py-32", className)}
     >
+      {/* Wave Transition Top - Mobile */}
+      <div
+        className="absolute left-0 right-0 z-0 -top-6 md:hidden"
+        style={{
+          transform: `translateY(${waveY}px)`
+        }}
+      >
+        <svg
+          viewBox="0 0 1440 320"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 80L48 73C96 67 192 53 288 47C384 40 480 40 576 53C672 67 768 93 864 100C960 107 1056 93 1152 73C1248 53 1344 27 1392 13L1440 0V320H1392C1344 320 1248 320 1152 320C1056 320 960 320 864 320C768 320 672 320 576 320C480 320 384 320 288 320C192 320 96 320 48 320H0Z"
+            fill="#7B1F59"
+          />
+        </svg>
+      </div>
+
+      {/* Wave Transition Top - Desktop */}
+      <div
+        className="absolute left-0 right-0 z-0 hidden lg:-top-16 xl:-top-24 2xl:-top-32 -top-8 md:block"
+        style={{
+          transform: `translateY(${waveY}px)`
+        }}
+      >
+        <svg
+          viewBox="0 0 1440 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 67L48 61C96 56 192 44 288 39C384 33 480 33 576 44C672 56 768 78 864 83C960 89 1056 78 1152 61C1248 44 1344 22 1392 11L1440 0V200H1392C1344 200 1248 200 1152 200C1056 200 960 200 864 200C768 200 672 200 576 200C480 200 384 200 288 200C192 200 96 200 48 200H0Z"
+            fill="#7B1F59"
+          />
+        </svg>
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 pattern-batik" />
@@ -61,7 +104,7 @@ const TentangSection = ({className}) => {
 
       {/* Decorative Flowers */}
       <div
-        className="absolute w-20 h-20 top-10 right-10 md:w-32 md:h-32 opacity-20"
+        className="absolute w-20 h-20 top-10 right-10 md:w-32 md:h-32 opacity-30"
         style={{
           transform: `rotate(${decorRotate}deg)`
         }}
@@ -70,7 +113,7 @@ const TentangSection = ({className}) => {
       </div>
 
       <div
-        className="absolute w-16 h-16 bottom-20 left-10 md:w-24 md:h-24 opacity-20"
+        className="absolute w-16 h-16 bottom-20 left-10 md:w-24 md:h-24 opacity-30"
         style={{
           transform: `rotate(${-decorRotate}deg)`
         }}
@@ -170,7 +213,7 @@ const TentangSection = ({className}) => {
       </div>
 
       {/* Wave Transition */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute left-0 right-0 -bottom-2">
         <svg
           viewBox="0 0 1440 120"
           fill="none"
@@ -180,7 +223,7 @@ const TentangSection = ({className}) => {
         >
           <path
             d="M0 60L48 55C96 50 192 40 288 35C384 30 480 30 576 40C672 50 768 70 864 75C960 80 1056 70 1152 55C1248 40 1344 20 1392 10L1440 0V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z"
-            fill="#FFF5E8"
+            fill="#FFFFFF"
           />
         </svg>
       </div>

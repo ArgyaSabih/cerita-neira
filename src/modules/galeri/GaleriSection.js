@@ -208,7 +208,7 @@ const GaleriSection = ({className}) => {
     <section
       ref={sectionRef}
       id="galeri"
-      className={cn("relative min-h-[150vh] bg-wine-500 py-20 md:py-32 overflow-hidden", className)}
+      className={cn("relative min-h-[150vh] bg-cream-300 py-20 md:py-32 overflow-hidden", className)}
       style={{
         perspective: "1000px",
         perspectiveOrigin: "center center"
@@ -216,7 +216,7 @@ const GaleriSection = ({className}) => {
     >
       {/* Background Gradient */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-wine-500 via-wine-600 to-wine-700"
+        className="absolute inset-0 bg-cream-300"
         style={{
           transform: `translateZ(-100px) scale(1.2)`
         }}
@@ -243,13 +243,13 @@ const GaleriSection = ({className}) => {
           transform: `translateY(${-scrollProgress * 30}px)`
         }}
       >
-        <span className="inline-block px-4 py-1 mb-4 text-sm rounded-full bg-cream-500/20 text-cream-100 font-plusjakartasans-medium">
+        <span className="inline-block px-4 py-1 mb-4 text-sm rounded-full bg-wine-500/10 text-wine-500 font-plusjakartasans-medium">
           Jelajahi Keindahan
         </span>
-        <h2 className="mb-4 text-4xl font-auromiya sm:text-5xl md:text-6xl lg:text-7xl text-cream-100">
+        <h2 className="mb-4 text-4xl font-auromiya sm:text-5xl md:text-6xl lg:text-7xl text-wine-500">
           Galeri Neira
         </h2>
-        <p className="max-w-2xl mx-auto text-cream-200 font-plusjakartasans-regular">
+        <p className="max-w-2xl mx-auto text-neutral-600 font-plusjakartasans-regular">
           Masuki galeri kami dan rasakan pengalaman visual yang memukau dari Banda Neira
         </p>
       </div>
@@ -299,28 +299,12 @@ const GaleriSection = ({className}) => {
           opacity: Math.max(0, 1 - scrollProgress * 3)
         }}
       >
-        <p className="mb-2 text-sm text-cream-200/60 font-plusjakartasans-regular">
+        <p className="mb-2 text-sm text-neutral-500 font-plusjakartasans-regular">
           Scroll untuk menjelajah lebih dalam
         </p>
-        <div className="flex justify-center w-6 h-10 p-1 mx-auto border-2 rounded-full border-cream-200/30">
-          <div className="w-1.5 h-3 bg-cream-200/50 rounded-full animate-bounce" />
+        <div className="flex justify-center w-6 h-10 p-1 mx-auto border-2 rounded-full border-wine-300">
+          <div className="w-1.5 h-3 bg-wine-400 rounded-full animate-bounce" />
         </div>
-      </div>
-
-      {/* Wave Transition */}
-      <div className="absolute bottom-0 left-0 right-0 z-40">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 60L60 65C120 70 240 80 360 80C480 80 600 70 720 55C840 40 960 20 1080 15C1200 10 1320 20 1380 25L1440 30V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="#FFF5E8"
-          />
-        </svg>
       </div>
     </section>
   );

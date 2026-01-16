@@ -110,7 +110,7 @@ const SponsorSection = ({className}) => {
       className={cn("relative bg-cream-500 py-20 md:py-32 overflow-hidden", className)}
     >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pattern-batik" />
+      <div className="absolute inset-0 opacity-5 pattern-batik" />
 
       {/* Floating Decorations */}
       <div

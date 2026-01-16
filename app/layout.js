@@ -5,6 +5,7 @@ import QueryProvider from "@/utils/contexts/QueryProvider";
 import Script from "next/script";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import {getMetadata} from "@/utils/helpers/getMetadata";
 
 import {
   PlusJakartaSansBold,
@@ -15,18 +16,11 @@ import {
   Auromiya
 } from "@/utils/helpers/font";
 
-export const metadata = {
-  title: "Cerita Neira | KKN-PPM UGM 2026",
+export const metadata = getMetadata({
+  title: "Cerita Neira | KKN-PPM UGM",
   description:
-    "Website resmi KKN-PPM UGM 2026 di Banda Neira, Maluku. Bergabunglah bersama kami dalam perjalanan bersejarah di Negeri Pala.",
-  keywords: ["KKN", "UGM", "Banda Neira", "Maluku", "Cerita Neira", "KKN-PPM"],
-  authors: [{name: "Tim Cerita Neira"}],
-  openGraph: {
-    title: "Cerita Neira | KKN-PPM UGM 2026",
-    description: "Website resmi KKN-PPM UGM 2026 di Banda Neira, Maluku",
-    type: "website"
-  }
-};
+    "Website resmi KKN-PPM UGM di Banda Neira, Maluku. Bergabunglah bersama kami dalam perjalanan bersejarah di Negeri Pala."
+});
 
 export const viewport = {
   themeColor: "#FFF5E8",

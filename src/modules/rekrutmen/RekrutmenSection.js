@@ -141,7 +141,10 @@ const RekrutmenSection = ({className}) => {
     <section
       ref={sectionRef}
       id="rekrutmen"
-      className={cn("relative min-h-screen bg-teal-500 py-20 md:py-32 overflow-hidden", className)}
+      className={cn(
+        "relative min-h-screen bg-gradient-to-b from-neutral-100 via-cream-200 to-cream-300 py-20 md:py-32 overflow-hidden",
+        className
+      )}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pattern-batik" />
@@ -175,13 +178,13 @@ const RekrutmenSection = ({className}) => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="inline-block px-4 py-1 mb-4 text-sm rounded-full bg-cream-500/20 text-cream-100 font-plusjakartasans-medium">
+          <span className="inline-block px-4 py-1 mb-4 text-sm rounded-full bg-wine-500/10 text-wine-500 font-plusjakartasans-medium">
             Bergabung Bersama Kami
           </span>
-          <h2 className="mb-4 text-4xl font-auromiya sm:text-5xl md:text-6xl text-cream-100">
+          <h2 className="mb-4 text-4xl font-auromiya sm:text-5xl md:text-6xl text-wine-500">
             Rekrutmen Terbuka
           </h2>
-          <p className="max-w-2xl mx-auto text-cream-200 font-plusjakartasans-regular">
+          <p className="max-w-2xl mx-auto text-neutral-600 font-plusjakartasans-regular">
             Jadilah bagian dari perjalanan bersejarah di Negeri Pala. Daftarkan dirimu sekarang!
           </p>
         </div>
@@ -265,10 +268,8 @@ const RekrutmenSection = ({className}) => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
             )}
           >
-            <h3 className="mb-2 text-2xl font-plusjakartasans-bold text-cream-100">
-              Dokumen yang Diperlukan
-            </h3>
-            <p className="mb-6 text-cream-200 font-plusjakartasans-regular">
+            <h3 className="mb-2 text-2xl font-plusjakartasans-bold text-wine-600">Dokumen yang Diperlukan</h3>
+            <p className="mb-6 text-neutral-600 font-plusjakartasans-regular">
               Unduh template dokumen berikut dan lengkapi sebelum mendaftar
             </p>
 
@@ -279,9 +280,9 @@ const RekrutmenSection = ({className}) => {
             </div>
 
             {/* Additional Info */}
-            <div className="p-4 mt-8 bg-cream-100/10 rounded-xl backdrop-blur-sm">
-              <h4 className="mb-2 font-plusjakartasans-semibold text-cream-100">📌 Informasi Penting</h4>
-              <ul className="space-y-1 text-sm text-cream-200 font-plusjakartasans-regular">
+            <div className="p-4 mt-8 bg-wine-500/10 rounded-xl">
+              <h4 className="mb-2 font-plusjakartasans-semibold text-wine-600">📌 Informasi Penting</h4>
+              <ul className="space-y-1 text-sm text-neutral-600 font-plusjakartasans-regular">
                 <li>• Pendaftaran dibuka hingga 31 Januari 2026</li>
                 <li>• Pastikan semua dokumen sudah lengkap</li>
                 <li>• Perhatikan persyaratan khusus di formulir</li>
@@ -289,22 +290,6 @@ const RekrutmenSection = ({className}) => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Wave Transition */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 80L48 70C96 60 192 40 288 35C384 30 480 40 576 55C672 70 768 90 864 90C960 90 1056 70 1152 55C1248 40 1344 30 1392 25L1440 20V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z"
-            fill="#7B1F59"
-          />
-        </svg>
       </div>
     </section>
   );

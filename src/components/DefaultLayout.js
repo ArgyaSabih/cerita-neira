@@ -10,8 +10,8 @@ const DefaultLayout = ({className, decoration = <></>, children, ...props}) => {
       )}
       {...props}
     >
-      {decoration}
-      <div className="relative w-full max-w-[1440px]">{children}</div>
+      <div className="absolute inset-0 z-0 overflow-hidden">{decoration}</div>
+      <div className="relative z-10 w-full max-w-[1440px]">{children}</div>
     </section>
   );
 };

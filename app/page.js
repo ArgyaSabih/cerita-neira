@@ -5,7 +5,6 @@ import TentangSection from "@/modules/tentang/TentangSection";
 import TimelineSection from "@/modules/timeline/TimelineSection";
 import RekrutmenSection from "@/modules/rekrutmen/RekrutmenSection";
 import GaleriSection from "@/modules/galeri/GaleriSection";
-import SponsorSection from "@/modules/sponsor/SponsorSection";
 import Lenis from "lenis";
 import {useEffect} from "react";
 
@@ -28,7 +27,6 @@ export default function Home() {
       <TimelineSection />
       <RekrutmenSection />
       <GaleriSection />
-      <SponsorSection />
     </main>
   );
 }
