@@ -45,7 +45,6 @@ const timelineData = [
 
 const TimelineItem = ({item, index, isVisible, scrollProgress}) => {
   const isLeft = index % 2 === 0;
-  const delay = index * 150;
 
   // Parallax effect berdasarkan scroll
   const translateY = Math.max(0, 50 - scrollProgress * 100);
@@ -68,7 +67,6 @@ const TimelineItem = ({item, index, isVisible, scrollProgress}) => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}
         style={{
-          transitionDelay: `${delay}ms`,
           transform: `translateY(${translateY * (isLeft ? 1 : -1) * 0.3}px)`
         }}
       >
@@ -106,7 +104,6 @@ const TimelineItem = ({item, index, isVisible, scrollProgress}) => {
           "transform transition-all duration-500",
           isVisible ? "scale-100" : "scale-0"
         )}
-        style={{transitionDelay: `${delay + 100}ms`}}
       >
         <div className="w-2 h-2 rounded-full bg-cream-100" />
       </div>
@@ -132,6 +129,7 @@ TimelineItem.propTypes = {
 
 const TimelineSection = ({className}) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [visibleItems, setVisibleItems] = useState([]);
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef(null);
   const lineRef = useRef(null);
@@ -144,6 +142,11 @@ const TimelineSection = ({className}) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          timelineData.forEach((_, index) => {
+            setTimeout(() => {
+              setVisibleItems((prev) => [...prev, index]);
+            }, index * 300);
+          });
         }
       },
       {threshold: 0.1}
@@ -187,12 +190,12 @@ const TimelineSection = ({className}) => {
       <div className="absolute inset-0 opacity-5 pattern-batik" />
 
       {/* Floating decorations */}
-      <div className="absolute w-28 h-28 md:w-48 md:h-48 animate-spin lg:top-12 top-24 left-10 lg:left-40 opacity-30">
+      <div className="absolute w-28 h-28 md:w-48 md:h-48 animate-spin-slow lg:top-12 top-24 left-10 lg:left-40 opacity-30">
         <Image src="/assets/bunga-1.webp" alt="" fill className="object-contain" />
       </div>
 
       <div
-        className="absolute w-28 h-28 bottom-32 right-60 opacity-30"
+        className="absolute bottom-[25rem] w-28 h-28 right-60 opacity-30"
         style={{
           transform: `translateY(${-scrollProgress * 150}px) rotate(${-scrollProgress * 120}deg)`
         }}
@@ -255,7 +258,7 @@ const TimelineSection = ({className}) => {
                 key={item.id}
                 item={item}
                 index={index}
-                isVisible={isVisible}
+                isVisible={visibleItems.includes(index)}
                 scrollProgress={scrollProgress}
               />
             ))}

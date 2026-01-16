@@ -142,7 +142,7 @@ const RekrutmenSection = ({className}) => {
       ref={sectionRef}
       id="rekrutmen"
       className={cn(
-        "relative min-h-screen bg-gradient-to-b from-neutral-100 via-cream-200 to-cream-300 py-20 md:py-32 overflow-visible",
+        "relative min-h-screen bg-gradient-to-b from-neutral-100 via-cream-200 to-cream-300 py-20 md:py-32",
         className
       )}
     >
@@ -166,6 +166,10 @@ const RekrutmenSection = ({className}) => {
         }}
       >
         <Image src="/assets/bunga-5.webp" alt="" fill className="object-contain" />
+      </div>
+
+      <div className="absolute z-10 -bottom-24 animate-spin-slow-reverse left-32 w-44 h-44 opacity-30">
+        <Image src="/assets/bunga-4.webp" alt="" fill className="object-contain" />
       </div>
 
       {/* Container */}
@@ -250,14 +254,6 @@ const RekrutmenSection = ({className}) => {
                 Daftar Sekarang
                 <FiExternalLink className="w-4 h-4" />
               </a>
-            </div>
-
-            {/* Decorative Elements */}
-            <div
-              className="absolute w-16 h-16 -top-6 -right-6 animate-float"
-              style={{transform: `translateY(${scrollProgress * -20}px)`}}
-            >
-              <Image src="/assets/buah-pala.webp" alt="" fill className="object-contain" />
             </div>
           </div>
 
