@@ -4,6 +4,7 @@ import {useEffect, useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import {cn} from "@/utils/helpers/cn";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
   {id: 1, name: "Home", href: "#home"},
@@ -158,9 +159,10 @@ const Navbar = ({className}) => {
             </div>
 
             {/* CTA Button */}
-            <a
-              href="#rekrutmen"
-              onClick={(e) => handleNavClick(e, "#rekrutmen")}
+            <Link
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(
                 "hidden lg:inline-flex items-center px-5 py-2 rounded-full font-plusjakartasans-semibold text-sm transition-all duration-300",
                 isScrolled
@@ -169,7 +171,7 @@ const Navbar = ({className}) => {
               )}
             >
               Daftar Sekarang
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

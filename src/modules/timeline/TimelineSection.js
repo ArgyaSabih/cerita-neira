@@ -182,7 +182,7 @@ const TimelineSection = ({className}) => {
       ref={sectionRef}
       id="timeline"
       className={cn(
-        "relative min-h-screen bg-gradient-to-b from-cream-300 via-cream-200 to-neutral-100 py-20 md:py-32",
+        "relative min-h-screen bg-gradient-to-b z-20 from-cream-300 via-cream-200 to-neutral-100 py-20 md:py-32",
         className
       )}
     >

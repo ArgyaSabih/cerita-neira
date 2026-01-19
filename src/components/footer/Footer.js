@@ -47,7 +47,7 @@ const Footer = ({className}) => {
       <div className="absolute top-0 left-0 right-0">
         <svg
           viewBox="0 0 1440 60"
-          fill="none"
+          fill="#FFF8F1"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full"
           preserveAspectRatio="none"

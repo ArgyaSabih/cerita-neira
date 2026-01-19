@@ -143,17 +143,14 @@ const RekrutmenSection = ({className}) => {
     <section
       ref={sectionRef}
       id="rekrutmen"
-      className={cn(
-        "relative min-h-screen bg-gradient-to-b from-neutral-100 via-cream-200 to-cream-300 py-20 md:py-32",
-        className
-      )}
+      className={cn("relative z-15 min-h-screen overflow-visible bg-neutral-100 py-20 md:py-32", className)}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pattern-batik" />
 
       {/* Floating Decorations */}
       <div
-        className="absolute w-24 h-24 bottom-20 right-20 opacity-20"
+        className="absolute w-24 h-24 bottom-60 left-16 opacity-20"
         style={{
           transform: `translateY(${scrollProgress * 100}px) rotate(${scrollProgress * 75}deg)`
         }}
@@ -170,7 +167,7 @@ const RekrutmenSection = ({className}) => {
         <Image src="/assets/bunga-5.webp" alt="" fill className="object-contain" />
       </div>
 
-      <div className="absolute z-10 -bottom-24 animate-spin-slow-reverse left-32 w-44 h-44 opacity-30">
+      <div className="absolute z-10 -bottom-24 animate-spin-slow-reverse right-32 w-44 h-44 opacity-30">
         <Image src="/assets/bunga-4.webp" alt="" fill className="object-contain" />
       </div>
 
@@ -280,7 +277,7 @@ const RekrutmenSection = ({className}) => {
             </div>
 
             {/* Additional Info */}
-            <div className="p-4 mt-8 bg-wine-500/10 rounded-xl">
+            <div className="p-4 mt-8 bg-wine-100 rounded-xl">
               <h4 className="mb-2 font-plusjakartasans-semibold text-wine-600">📌 Informasi Penting</h4>
               <ul className="space-y-1 text-sm text-neutral-600 font-plusjakartasans-regular">
                 <li>• Pendaftaran dibuka hingga 31 Januari 2026</li>
