@@ -5,6 +5,7 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import {cn} from "@/utils/helpers/cn";
 import {FiDownload, FiFileText, FiCheckCircle, FiExternalLink} from "react-icons/fi";
+import Link from "next/link";
 
 const documentsData = [
   {
@@ -43,45 +44,46 @@ const DocumentCard = ({document, isVisible, index}) => {
   const colors = colorClasses[document.color];
 
   return (
-    <div
-      className={cn(
-        "group relative p-6 bg-white rounded-2xl shadow-lg",
-        "transform transition-all duration-700 ease-out",
-        "hover:shadow-xl hover:-translate-y-2",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      )}
-      style={{transitionDelay: `${delay}ms`}}
-    >
-      {/* Icon */}
+    <Link href={document.downloadUrl} target="_blank" rel="noopener noreferrer">
       <div
         className={cn(
-          "inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4",
-          colors.bg,
-          colors.icon
+          "group relative p-6 bg-white rounded-2xl shadow-lg",
+          "transform transition-all duration-700 ease-out",
+          "hover:shadow-xl hover:-translate-y-2",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}
+        style={{transitionDelay: `${delay}ms`}}
       >
-        {document.icon}
+        {/* Icon */}
+        <div
+          className={cn(
+            "inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4",
+            colors.bg,
+            colors.icon
+          )}
+        >
+          {document.icon}
+        </div>
+
+        {/* Title */}
+        <h3 className="mb-2 text-lg font-plusjakartasans-bold text-wine-600">{document.title}</h3>
+
+        {/* Description */}
+        <p className="mb-4 text-sm text-neutral-600 font-plusjakartasans-regular">{document.description}</p>
+
+        {/* Download Button */}
+        <div
+          className={cn(
+            "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-plusjakartasans-semibold",
+            "transition-all duration-300",
+            colors.button
+          )}
+        >
+          <FiDownload className="w-4 h-4" />
+          Download Template
+        </div>
       </div>
-
-      {/* Title */}
-      <h3 className="mb-2 text-lg font-plusjakartasans-bold text-wine-600">{document.title}</h3>
-
-      {/* Description */}
-      <p className="mb-4 text-sm text-neutral-600 font-plusjakartasans-regular">{document.description}</p>
-
-      {/* Download Button */}
-      <a
-        href={document.downloadUrl}
-        className={cn(
-          "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-plusjakartasans-semibold",
-          "transition-all duration-300",
-          colors.button
-        )}
-      >
-        <FiDownload className="w-4 h-4" />
-        Download Template
-      </a>
-    </div>
+    </Link>
   );
 };
 
@@ -198,14 +200,19 @@ const RekrutmenSection = ({className}) => {
           {/* QR Code Section */}
           <div
             className={cn(
-              "relative",
-              "transform transition-all duration-700 delay-200",
+              "relative ",
+              "transform transition-all duration-500 h-full hover:scale-105 hover:shadow-lg hover:ring-2 ring-wine-500/50 hover:shadow-wine-500/50 rounded-3xl",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
             )}
           >
-            <div className="p-8 text-center shadow-2xl bg-cream-100 rounded-3xl md:p-12">
+            <Link
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center h-full p-8 text-center shadow-lg bg-cream-100 rounded-3xl md:p-12"
+            >
               {/* QR Code Placeholder */}
-              <div className="relative w-48 h-48 p-4 mx-auto mb-6 bg-white shadow-inner md:w-64 md:h-64 rounded-2xl">
+              <div className="relative p-4 mx-auto bg-white shadow-inner w-60 h-60 sm:w-72 sm:h-72 lg:w-64 lg:h-64 xl:w-96 xl:h-96 rounded-2xl">
                 {/* QR Code SVG Placeholder */}
                 <div className="flex items-center justify-center w-full h-full bg-neutral-100 rounded-xl">
                   <svg viewBox="0 0 100 100" className="w-full h-full p-2">
@@ -247,14 +254,11 @@ const RekrutmenSection = ({className}) => {
                 Atau klik tombol di bawah ini
               </p>
 
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 px-6 py-3 transition-colors bg-wine-500 text-cream-100 rounded-xl font-plusjakartasans-semibold hover:bg-wine-600"
-              >
+              <div className="inline-flex items-center gap-2 px-6 py-3 transition-all duration-300 hover:scale-105 bg-wine-500 text-cream-100 rounded-xl font-plusjakartasans-semibold hover:bg-wine-600">
                 Daftar Sekarang
                 <FiExternalLink className="w-4 h-4" />
-              </a>
-            </div>
+              </div>
+            </Link>
           </div>
 
           {/* Documents Section */}

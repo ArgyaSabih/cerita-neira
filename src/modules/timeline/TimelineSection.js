@@ -204,9 +204,9 @@ const TimelineSection = ({className}) => {
       </div>
 
       <div
-        className="absolute z-10 w-60 h-60 -right-12 -bottom-4 md:-right-28 md:-bottom-20 md:w-96 md:h-96"
+        className="absolute z-10 w-60 h-60 -right-12 bottom-4 md:-right-28 md:-bottom-20 md:w-96 md:h-96"
         style={{
-          transform: `rotate(-20deg) translateY(${scrollProgress * 150}px)`
+          transform: `rotate(-20deg) translateY(${scrollProgress * 250}px)`
         }}
       >
         <Image src="/assets/ring-pala.webp" alt="" fill className="object-contain" />

@@ -17,8 +17,7 @@ const quickLinks = [
   {id: 1, name: "Tentang Kami", href: "#tentang"},
   {id: 2, name: "Timeline", href: "#timeline"},
   {id: 3, name: "Rekrutmen", href: "#rekrutmen"},
-  {id: 4, name: "Galeri", href: "#galeri"},
-  {id: 5, name: "Sponsor", href: "#sponsor"}
+  {id: 4, name: "Galeri", href: "#galeri"}
 ];
 
 const Footer = ({className}) => {
@@ -86,8 +85,7 @@ const Footer = ({className}) => {
               Cerita <span className="text-teal-400">Neira</span>
             </h2>
             <p className="max-w-md mb-6 text-cream-200 font-plusjakartasans-regular">
-              KKN-PPM UGM 2026 di Banda Neira, Maluku. Bersama-sama menulis cerita untuk Negeri Pala,
-              melestarikan budaya dan memberdayakan potensi lokal.
+              KKN-PPM UGM 2026 Desa Rajawali & Desa TanaRatah, Kec. Banda, Maluku Tengah.
             </p>
 
             {/* Social Links */}
@@ -163,12 +161,9 @@ const Footer = ({className}) => {
 
         {/* Divider */}
         <div className="pt-8 border-t border-cream-100/10">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-center text-cream-300 font-plusjakartasans-regular md:text-left">
+          <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
+            <p className="text-sm text-center text-cream-300 font-plusjakartasans-regular">
               © 2026 Cerita Neira - KKN-PPM UGM. All rights reserved.
-            </p>
-            <p className="text-sm text-cream-300 font-plusjakartasans-regular">
-              Made with ❤️ by Tim Cerita Neira
             </p>
           </div>
         </div>
