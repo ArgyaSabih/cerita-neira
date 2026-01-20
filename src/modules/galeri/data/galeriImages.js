@@ -6,7 +6,7 @@ export const galeriImages = [
     positions: {
       sm: {left: "6%", top: "22%", z: -80},
       md: {left: "5%", top: "16%", z: -100},
-      lg: {left: "5%", top: "15%", z: -120}
+      lg: {left: "10%", top: "15%", z: -120}
     }
   },
   {

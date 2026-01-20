@@ -343,7 +343,7 @@ const GaleriSection = ({className}) => {
           {/* End Card - CTA */}
           <div
             ref={addToGallery}
-            className="absolute grid transition duration-500 ease-out text-gallery left-1/2 top-1/2 place-items-center"
+            className="absolute z-10 grid transition duration-500 ease-out text-gallery left-1/2 top-1/2 place-items-center"
             style={{
               transform: "translate3d(0,0,0)"
             }}
