@@ -21,7 +21,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <main className="relative min-h-screen bg-cream-500">
+    <main className="relative min-h-screen overflow-x-clip bg-cream-500">
       <HeroSection />
       <TentangSection />
       <TimelineSection />

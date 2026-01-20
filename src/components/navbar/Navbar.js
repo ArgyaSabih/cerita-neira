@@ -92,11 +92,9 @@ const Navbar = ({className}) => {
         className={cn(
           "mx-auto transition-all duration-500 ease-out py-3",
           isScrolled
-            ? "max-w-[1200px] bg-cream-100 backdrop-blur-sm shadow-xl drop-shadow-lg rounded-full px-6"
+            ? "max-w-[1200px] bg-cream-100 shadow-md drop-shadow-lg rounded-full px-6"
             : "container px-4 md:px-8 lg:px-16",
-          isMobileMenuOpen
-            ? "max-w-[1200px] bg-cream-100 backdrop-blur-sm shadow-xl drop-shadow-lg rounded-full px-6"
-            : ""
+          isMobileMenuOpen ? "max-w-[1200px] bg-cream-100 shadow-md drop-shadow-lg rounded-full px-6" : ""
         )}
       >
         <div className="flex items-center justify-between">

@@ -102,6 +102,7 @@ const GaleriSection = ({className}) => {
   const isScrolledRef = useRef(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [breakpoint, setBreakpoint] = useState("lg");
 
   // Animation frame and scroll tracking refs
   const animationFrameRef = useRef(null);
@@ -118,6 +119,19 @@ const GaleriSection = ({className}) => {
       galleryRef.current.push(el);
     }
   }, []);
+
+  // Resolve responsive positions from data file
+  const resolvePosition = useCallback(
+    (img) => {
+      if (!img) return img;
+      if (img.positions) {
+        const pos = img.positions[breakpoint] || img.positions.lg || img.positions.md || img.positions.sm;
+        return Object.assign({}, img, {left: pos.left, top: pos.top, z: pos.z});
+      }
+      return img;
+    },
+    [breakpoint]
+  );
 
   useEffect(() => {
     let isMobileParallax = window.innerWidth < 1024;
@@ -253,6 +267,18 @@ const GaleriSection = ({className}) => {
     };
   }, [roundTransform]);
 
+  // Breakpoint updater (sm/md/lg) used to resolve positions
+  useEffect(() => {
+    const updateBp = () => {
+      const w = window.innerWidth;
+      setBreakpoint(w >= 1024 ? "lg" : w >= 768 ? "md" : "sm");
+    };
+
+    updateBp();
+    window.addEventListener("resize", updateBp, {passive: true});
+    return () => window.removeEventListener("resize", updateBp);
+  }, []);
+
   return (
     <section ref={gallerySection} id="galeri" className={cn("relative z-10 bg-cream-300", className)}>
       {/* Parallax Content Container */}
@@ -263,12 +289,12 @@ const GaleriSection = ({className}) => {
 
           {/* Ornament images */}
           {ornamentImages.map((img, idx) => (
-            <OrnamentItem key={`ornament-${idx}`} img={img} addToGallery={addToGallery} />
+            <OrnamentItem key={`ornament-${idx}`} img={resolvePosition(img)} addToGallery={addToGallery} />
           ))}
 
           {/* Gallery images */}
           {galeriImages.map((img, idx) => (
-            <GalleryImageItem key={idx} img={img} addToGallery={addToGallery} />
+            <GalleryImageItem key={idx} img={resolvePosition(img)} addToGallery={addToGallery} />
           ))}
 
           {/* Title Card - Intro */}
