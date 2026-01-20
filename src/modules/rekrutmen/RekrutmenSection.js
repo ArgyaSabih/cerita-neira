@@ -167,7 +167,7 @@ const RekrutmenSection = ({className}) => {
         <Image src="/assets/bunga-5.webp" alt="" fill className="object-contain" />
       </div>
 
-      <div className="absolute z-10 -bottom-24 animate-spin-slow-reverse right-32 w-44 h-44 opacity-30">
+      <div className="absolute z-10 -bottom-24 animate-spin-slow-reverse right-0 sm:right-[10%] w-44 h-44 opacity-30">
         <Image src="/assets/bunga-4.webp" alt="" fill className="object-contain" />
       </div>
 

@@ -133,7 +133,7 @@ const Navbar = ({className}) => {
           <div className="flex justify-end gap-8">
             <div className="items-center hidden gap-8 lg:flex">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.id}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
@@ -152,7 +152,7 @@ const Navbar = ({className}) => {
                         : "w-0 opacity-0"
                     )}
                   />
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -221,7 +221,7 @@ const Navbar = ({className}) => {
         <div
           className={cn(
             "lg:hidden absolute left-0 right-0 transition-all duration-400 overflow-hidden",
-            "top-full mt-2 mx-2 bg-cream-100 backdrop-blur-sm rounded-2xl shadow-xl drop-shadow-2xl border border-wine-200",
+            "top-full mt-2 mx-2 bg-cream-100 backdrop-blur-sm rounded-2xl shadow-xl drop-shadow-2xl",
             isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           )}
         >
@@ -242,16 +242,17 @@ const Navbar = ({className}) => {
                   {link.name}
                 </a>
               ))}
-              <a
-                href="#rekrutmen"
-                onClick={(e) => handleNavClick(e, "#rekrutmen")}
+              <Link
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
                   "px-4 py-3 mt-2 text-center transition-colors rounded-xl font-plusjakartasans-semibold",
                   "bg-wine-500 text-cream-100 hover:bg-wine-400"
                 )}
               >
                 Daftar Sekarang
-              </a>
+              </Link>
             </div>
           </div>
         </div>

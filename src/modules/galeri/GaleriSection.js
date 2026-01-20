@@ -19,11 +19,12 @@ const GalleryImageItem = memo(function GalleryImageItem({img, addToGallery}) {
         top: img.top,
         bottom: img.bottom,
         transform: `translate3d(0,0,${img.z}px)`,
-        willChange: "transform, filter"
+        willChange: "transform, filter",
+        zIndex: Math.round((img.z + 3000) / 10)
       }}
       data-zinit={img.z}
     >
-      <div className="relative w-full h-full overflow-hidden shadow-lg rounded-xl ring-2 ring-wine-200/30">
+      <div className="relative w-full h-full overflow-hidden shadow-lg rounded-xl">
         <Image
           src={`/assets/${img.src}`}
           alt={img.alt}
@@ -69,7 +70,8 @@ const OrnamentItem = memo(function OrnamentItem({img, addToGallery}) {
         width: "120px",
         height: "120px",
         transform: baseTransform + skewTransform,
-        willChange: "transform, filter"
+        willChange: "transform, filter",
+        zIndex: Math.round((img.z + 3000) / 10)
       }}
       data-zinit={img.z}
     >
@@ -301,27 +303,32 @@ const GaleriSection = ({className}) => {
           <div
             ref={addToGallery}
             className={cn(
-              "absolute z-20 grid transition duration-500 ease-out text-gallery left-1/2 top-1/2 place-items-center",
+              "absolute grid transition duration-500 ease-out text-gallery left-1/2 top-1/2 place-items-center",
               isScrolled ? "opacity-70" : "opacity-100"
             )}
             style={{
               transform: "translate(-50%, -50%) translate3d(0,0,50px)",
-              willChange: "transform, filter"
+              willChange: "transform, filter",
+              zIndex: 500
             }}
             data-zinit="50"
             data-no-blur="true"
           >
             {/* Background flower ornaments for Title Card */}
-            <div className={cn("absolute -z-10 left-[-50px] top-[-130px] w-[120px] h-[120px] -rotate-12")}>
+            <div
+              className={cn(
+                "absolute -z-10 left-[-45px] top-[-95px] sm:left-[-40px] sm:top-[-105px] md:left-[-50px] md:top-[-130px] w-[120px] h-[120px] -rotate-12"
+              )}
+            >
               <Image src="/assets/bunga-2.webp" alt="Bunga dekor" fill className="object-contain" />
             </div>
-            <div className="absolute -z-10 right-[-50px] bottom-[-50px] w-[100px] h-[100px]">
-              <Image src="/assets/bunga-3.webp" alt="Bunga dekor" fill className="object-contain" />
+            <div className="absolute -z-10 right-[-50px] bottom-[-50px] w-[110px] h-[110px] -rotate-[8deg]">
+              <Image src="/assets/bunga-4.webp" alt="Bunga dekor" fill className="object-contain" />
             </div>
 
             <div
               className={cn(
-                "relative -mt-[15%] flex flex-col items-center gap-4 rounded-2xl border-4 border-wine-300 bg-cream-200/95 px-8 py-6 shadow-xl backdrop-blur-sm transition-all duration-300 sm:px-12 sm:py-8 md:px-16 md:py-10"
+                "relative -mt-[15%] min-w-[17rem] flex flex-col items-center gap-4 rounded-2xl border-4 border-wine-300 bg-cream-200/95 px-8 py-6 shadow-xl backdrop-blur-sm transition-all duration-300 sm:px-12 sm:py-8 md:px-16 md:py-10"
               )}
             >
               <span className="text-sm text-wine-400 font-plusjakartasans-medium sm:text-base">
@@ -360,16 +367,16 @@ const GaleriSection = ({className}) => {
               </div>
               <div
                 className={cn(
-                  "flex flex-col items-center gap-2 px-8 py-8 transition-all duration-300 border-4 shadow-xl rounded-2xl border-wine-300 bg-cream-200/95 backdrop-blur-sm sm:px-12 sm:py-10 md:px-12 md:py-8 group-hover:shadow-2xl group-hover:scale-105 group-hover:border-wine-400"
+                  "flex flex-col min-w-[16rem] items-center gap-2 px-8 py-8 transition-all duration-300 border-4 shadow-xl rounded-2xl border-wine-300 bg-cream-200/95 backdrop-blur-sm sm:px-12 sm:py-10 md:px-12 md:py-8 group-hover:shadow-2xl group-hover:scale-105 group-hover:border-wine-400"
                 )}
               >
-                <h3 className="text-xl text-center text-wine-500 font-auromiya sm:text-2xl md:text-2xl">
+                <h3 className="text-[1.4rem] text-center text-wine-500 font-auromiya sm:text-2xl md:text-2xl">
                   Siap menjadi bagian dari
                 </h3>
-                <p className="text-2xl text-center text-wine-600 font-auromiya sm:text-3xl md:text-3xl">
+                <p className="text-[1.6rem] text-center text-wine-600 font-auromiya sm:text-3xl md:text-3xl">
                   Cerita Neira?
                 </p>
-                <span className="inline-flex items-center gap-2 px-4 py-2 mt-2 text-sm transition-all duration-300 rounded-full shadow-lg bg-wine-500 text-cream-100 group-hover:bg-wine-600 group-hover:shadow-xl font-plusjakartasans-medium sm:text-[0.7rem]">
+                <span className="inline-flex items-center gap-2 px-4 py-2 mt-2 text-[0.7rem] transition-all duration-300 rounded-full shadow-lg bg-wine-500 text-cream-100 group-hover:bg-wine-600 group-hover:shadow-xl font-plusjakartasans-medium">
                   Daftar Sekarang
                   <svg
                     className="w-4 h-4 mt-1 transition-transform duration-300"

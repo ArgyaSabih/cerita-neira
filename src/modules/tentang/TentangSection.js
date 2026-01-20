@@ -122,7 +122,7 @@ const TentangSection = ({className}) => {
       </div>
 
       <div
-        className="absolute w-20 h-20 bottom-24 md:bottom-40 left-10 md:w-28 md:h-28 opacity-30"
+        className="absolute w-20 h-20 bottom-[5%] md:bottom-[10%] left-10 md:w-28 md:h-28 opacity-30"
         style={{
           transform: `rotate(${-decorRotate}deg)`
         }}

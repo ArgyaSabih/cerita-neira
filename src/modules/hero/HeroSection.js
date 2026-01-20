@@ -119,7 +119,7 @@ const HeroSection = ({className}) => {
 
           <h1
             className={cn(
-              "font-auromiya text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-neutral-100 text-center leading-none -mt-2 md:-mt-4",
+              "font-auromiya text-[3.5rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl text-neutral-100 text-center leading-none -mt-1",
               "transition-all duration-700 delay-700",
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
@@ -137,7 +137,7 @@ const HeroSection = ({className}) => {
           >
             KKN-PPM UGM BANDA NEIRA
           </div>
-          <p className="text-sm text-neutral-100 md:text-xl font-plusjakartasans-regular">
+          <p className="text-sm text-center text-neutral-100 md:text-xl font-plusjakartasans-regular">
             Desa Rajawali & Desa TanaRatah, Kec. Banda, Maluku Tengah
           </p>
         </div>

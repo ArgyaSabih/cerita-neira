@@ -4,7 +4,7 @@ export const galeriImages = [
     src: "bg-hero.webp",
     alt: "Banda Neira View",
     positions: {
-      sm: {left: "6%", top: "18%", z: -80},
+      sm: {left: "6%", top: "22%", z: -80},
       md: {left: "5%", top: "16%", z: -100},
       lg: {left: "5%", top: "15%", z: -120}
     }
@@ -33,7 +33,7 @@ export const galeriImages = [
     src: "img-tentang.webp",
     alt: "Keindahan Banda",
     positions: {
-      sm: {left: "12%", top: "72%", z: -480},
+      sm: {left: "12%", top: "62%", z: -480},
       md: {left: "15%", top: "70%", z: -550},
       lg: {left: "18%", top: "68%", z: -600}
     }
@@ -46,7 +46,7 @@ export const galeriImages = [
     positions: {
       sm: {left: "10%", top: "32%", z: -680},
       md: {left: "8%", top: "30%", z: -750},
-      lg: {left: "6%", top: "28%", z: -820}
+      lg: {left: "4%", top: "28%", z: -820}
     }
   },
   {
@@ -93,7 +93,7 @@ export const galeriImages = [
     src: "img-tentang.webp",
     alt: "Keajaiban Neira",
     positions: {
-      sm: {left: "12%", top: "58%", z: -1550},
+      sm: {left: "12%", top: "30%", z: -1550},
       md: {left: "10%", top: "55%", z: -1700},
       lg: {left: "8%", top: "52%", z: -1850}
     }
@@ -104,9 +104,9 @@ export const galeriImages = [
     src: "bg-hero.webp",
     alt: "Horison Banda",
     positions: {
-      sm: {left: "58%", top: "62%", z: -1700},
+      sm: {left: "58%", top: "62%", z: -1800},
       md: {left: "60%", top: "60%", z: -1900},
-      lg: {left: "62%", top: "58%", z: -2100}
+      lg: {left: "62%", top: "58%", z: -2000}
     }
   }
 ];
