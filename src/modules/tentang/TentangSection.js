@@ -185,15 +185,16 @@ const TentangSection = ({className}) => {
             </h2>
 
             {/* Description */}
-            <p className="mb-6 text-base leading-relaxed text-cream-200 md:text-lg font-plusjakartasans-regular">
-              Cerita Neira adalah program Kuliah Kerja Nyata Pembelajaran Pemberdayaan Masyarakat (KKN-PPM)
-              UGM yang berlokasi di Banda Neira, Maluku. Kami hadir untuk berkontribusi dalam pemberdayaan
-              masyarakat lokal melalui berbagai program yang berkelanjutan.
+            <p className="mb-6 text-base leading-relaxed text-justify text-cream-200 md:text-lg font-plusjakartasans-regular">
+              Cerita Neira adalah salah satu tim dari KKN-PPM UGM yang menempatkan masyarakat Banda Neira
+              sebagai subjek perubahan. Berangkat dari integrasi inovasi teknologi digital, penguatan tata
+              kelola pemerintahan desa, serta konservasi sumber daya alam, Cerita Neira hadir untuk memperkuat
+              kapabilitas lokal di tengah arus globalisasi budaya.
             </p>
 
-            <p className="mb-8 text-base leading-relaxed text-cream-300 md:text-lg font-plusjakartasans-regular">
-              Bersama-sama, kita akan menulis cerita baru untuk negeri Pala—melestarikan budaya, memberdayakan
-              potensi, dan membangun harapan untuk generasi mendatang.
+            <p className="mb-8 text-base leading-relaxed text-justify text-cream-300 md:text-lg font-plusjakartasans-regular">
+              Cerita Neira tidak sekadar membawa program, tetapi membangun proses belajar bersama yang
+              berpijak pada nilai kebersamaan, kemandirian, dan keberlanjutan.
             </p>
           </div>
         </div>

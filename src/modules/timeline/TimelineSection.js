@@ -8,38 +8,27 @@ import {cn} from "@/utils/helpers/cn";
 const timelineData = [
   {
     id: 1,
-    date: "Januari 2026",
+    date: "27 Januari - 4 Februari 2026",
     title: "Pembukaan Pendaftaran",
-    description: "Pendaftaran peserta KKN-PPM Cerita Neira dibuka untuk seluruh mahasiswa UGM.",
-    icon: "📋"
+    description: "Pendaftaran peserta KKN-PPM Cerita Neira dibuka untuk seluruh mahasiswa UGM."
   },
   {
     id: 2,
-    date: "Februari 2026",
-    title: "Seleksi & Pengumuman",
-    description: "Proses seleksi berkas dan wawancara calon peserta KKN-PPM.",
-    icon: "📝"
+    date: "10 Februari 2026",
+    title: "Pengumuman Lolos Berkas",
+    description: "Proses seleksi berkas dan wawancara calon peserta KKN-PPM."
   },
   {
     id: 3,
-    date: "Maret 2026",
-    title: "Pembekalan",
-    description: "Pembekalan materi dan persiapan keberangkatan ke Banda Neira.",
-    icon: "📚"
+    date: "11 - 13 Februari 2026",
+    title: "Seleksi Wawancara",
+    description: "Pembekalan materi dan persiapan keberangkatan ke Banda Neira."
   },
   {
     id: 4,
-    date: "April - Mei 2026",
-    title: "Pelaksanaan KKN",
-    description: "Pelaksanaan program KKN-PPM di Banda Neira selama 45 hari.",
-    icon: "🏝️"
-  },
-  {
-    id: 5,
-    date: "Juni 2026",
-    title: "Penarikan & Evaluasi",
-    description: "Penarikan peserta dan evaluasi program yang telah dilaksanakan.",
-    icon: "🎓"
+    date: "14 Februari 2026",
+    title: "Pengumuman Lolos Wawancara",
+    description: "Pelaksanaan program KKN-PPM di Banda Neira selama 45 hari."
   }
 ];
 
@@ -63,37 +52,26 @@ const TimelineItem = ({item, index, isVisible, scrollProgress}) => {
           "w-full md:w-5/12 p-6 bg-white rounded-2xl shadow-lg",
           "transform transition-all duration-700 ease-out",
           "hover:shadow-xl hover:-translate-y-1",
-          isLeft ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left",
+          isLeft ? "md:mr-auto text-center md:text-right" : "text-center md:ml-auto md:text-left",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}
         style={{
           transform: `translateY(${translateY * (isLeft ? 1 : -1) * 0.3}px)`
         }}
       >
-        {/* Icon */}
-        <div
-          className={cn(
-            "inline-flex items-center justify-center w-12 h-12 mb-3 rounded-full bg-teal-100 text-2xl",
-            isLeft ? "md:ml-auto" : "md:mr-auto"
-          )}
-        >
-          {item.icon}
-        </div>
-
         {/* Date Badge */}
         <div
           className={cn(
-            "inline-block px-3 py-1 mb-2 text-xs font-plusjakartasans-semibold text-wine-500 bg-rose-100 rounded-full"
+            "inline-block px-4 py-2 mb-3 text-lg md:text-[1rem] lg:text-[1.3rem] font-plusjakartasans-bold text-wine-500 bg-rose-100 rounded-full"
           )}
         >
           {item.date}
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 text-lg md:text-xl font-plusjakartasans-bold text-wine-600">{item.title}</h3>
-
-        {/* Description */}
-        <p className="text-sm text-neutral-600 font-plusjakartasans-regular">{item.description}</p>
+        <h3 className="mb-2 text-base md:text-[1rem] lg:text-lg font-plusjakartasans-semibold text-wine-600">
+          {item.title}
+        </h3>
       </div>
 
       {/* Timeline Dot - Center */}
@@ -223,11 +201,13 @@ const TimelineSection = ({className}) => {
           )}
         >
           <span className="inline-block px-4 py-1 mb-4 text-sm rounded-full bg-wine-500/10 text-wine-500 font-plusjakartasans-medium">
-            Perjalanan Kami
+            Tahapan Pendaftaran
           </span>
-          <h2 className="mb-4 text-4xl font-auromiya sm:text-5xl md:text-6xl text-wine-500">Timeline</h2>
+          <h2 className="mb-4 text-4xl font-auromiya sm:text-5xl md:text-6xl text-wine-500">
+            Timeline Pendaftaran
+          </h2>
           <p className="max-w-2xl mx-auto text-neutral-600 font-plusjakartasans-regular">
-            Rangkaian kegiatan KKN-PPM Cerita Neira dari awal hingga akhir program
+            Catat tanggalnya, dan bersiaplah untuk menjadi bagian dari cerita neira!
           </p>
         </div>
 
@@ -244,7 +224,7 @@ const TimelineSection = ({className}) => {
           </div>
 
           {/* Mobile Timeline Line */}
-          <div className="md:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-neutral-200">
+          <div className="md:hidden absolute left-1/2 top-0 bottom-0 w-0.5 bg-neutral-200">
             <div
               className="absolute top-0 left-0 w-full transition-all duration-300 bg-gradient-to-b from-wine-500 to-teal-500"
               style={{height: lineHeight}}
