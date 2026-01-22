@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  {id: 1, name: "Home", href: "#home"},
+  {id: 1, name: "Beranda", href: "#beranda"},
   {id: 2, name: "Tentang", href: "#tentang"},
   {id: 3, name: "Timeline", href: "#timeline"},
   {id: 4, name: "Rekrutmen", href: "#rekrutmen"},
@@ -17,7 +17,7 @@ const navLinks = [
 const Navbar = ({className}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("beranda");
 
   const handleScroll = useCallback(() => {
     requestAnimationFrame(() => {
@@ -100,8 +100,8 @@ const Navbar = ({className}) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a
-            href="#home"
-            onClick={(e) => handleNavClick(e, "#home")}
+            href="#beranda"
+            onClick={(e) => handleNavClick(e, "#beranda")}
             className="relative flex items-center h-full gap-2 text-2xl transition-all duration-300 font-auromiya md:text-3xl"
           >
             <Image

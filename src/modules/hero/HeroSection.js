@@ -83,7 +83,7 @@ const HeroSection = ({className}) => {
         </>
       }
     >
-      <section ref={sectionRef} id="home" className={cn("relative min-h-[120vh] overflow-hidden")}>
+      <section ref={sectionRef} id="beranda" className={cn("relative min-h-[120vh] overflow-hidden")}>
         {/* Main Content */}
         <div
           className={cn(

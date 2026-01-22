@@ -34,9 +34,7 @@ const GalleryImageItem = memo(function GalleryImageItem({img, addToGallery}) {
           loading="lazy"
         />
         {/* Hover overlay */}
-        <div className="absolute inset-0 flex items-end p-3 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-wine-500/60 via-transparent to-transparent hover:opacity-100">
-          <span className="text-sm truncate text-cream-100 font-plusjakartasans-medium">{img.alt}</span>
-        </div>
+        <div className="absolute inset-0 flex items-end p-3 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-wine-500/60 via-transparent to-transparent hover:opacity-100"></div>
       </div>
     </div>
   );

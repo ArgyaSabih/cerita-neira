@@ -1,7 +1,7 @@
 export const galeriImages = [
   // Layer 1: Foreground (closest to viewer)
   {
-    src: "bg-hero.webp",
+    src: "galeri/01.webp",
     alt: "Banda Neira View",
     positions: {
       sm: {left: "6%", top: "22%", z: -80},
@@ -10,7 +10,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "img-tentang.webp",
+    src: "galeri/02.webp",
     alt: "Tentang Banda Neira",
     positions: {
       sm: {left: "68%", top: "28%", z: -140},
@@ -21,7 +21,7 @@ export const galeriImages = [
 
   // Layer 2: Near-mid
   {
-    src: "bg-hero.webp",
+    src: "galeri/03.webp",
     alt: "Panorama Banda",
     positions: {
       sm: {left: "72%", top: "68%", z: -360},
@@ -30,7 +30,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "img-tentang.webp",
+    src: "galeri/04.webp",
     alt: "Keindahan Banda",
     positions: {
       sm: {left: "12%", top: "62%", z: -480},
@@ -41,7 +41,7 @@ export const galeriImages = [
 
   // Layer 3: Mid layer
   {
-    src: "bg-hero.webp",
+    src: "galeri/05.webp",
     alt: "Pemandangan Neira",
     positions: {
       sm: {left: "10%", top: "32%", z: -680},
@@ -50,7 +50,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "img-tentang.webp",
+    src: "galeri/06.webp",
     alt: "Warisan Banda",
     positions: {
       sm: {left: "78%", top: "42%", z: -820},
@@ -61,7 +61,7 @@ export const galeriImages = [
 
   // Layer 4: Mid-far layer
   {
-    src: "bg-hero.webp",
+    src: "galeri/07.webp",
     alt: "Cakrawala Banda",
     positions: {
       sm: {left: "64%", top: "77%", z: -980},
@@ -70,7 +70,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "img-tentang.webp",
+    src: "galeri/08.webp",
     alt: "Pesona Neira",
     positions: {
       sm: {left: "18%", top: "22%", z: -1150},
@@ -81,7 +81,7 @@ export const galeriImages = [
 
   // Layer 5: Far layer
   {
-    src: "bg-hero.webp",
+    src: "galeri/09.webp",
     alt: "Langit Banda",
     positions: {
       sm: {left: "74%", top: "26%", z: -1380},
@@ -90,7 +90,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "img-tentang.webp",
+    src: "galeri/10.webp",
     alt: "Keajaiban Neira",
     positions: {
       sm: {left: "12%", top: "30%", z: -1550},
@@ -101,7 +101,7 @@ export const galeriImages = [
 
   // Layer 6: Background layer (furthest)
   {
-    src: "bg-hero.webp",
+    src: "galeri/11.webp",
     alt: "Horison Banda",
     positions: {
       sm: {left: "58%", top: "62%", z: -1800},
