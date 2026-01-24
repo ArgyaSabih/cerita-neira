@@ -6,6 +6,7 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import {cn} from "@/utils/helpers/cn";
 import {galeriImages, ornamentImages} from "./data/galeriImages";
+import {LuMouse} from "react-icons/lu";
 
 // Memoized gallery image component for performance
 const GalleryImageItem = memo(function GalleryImageItem({img, addToGallery}) {
@@ -103,6 +104,7 @@ const GaleriSection = ({className}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [breakpoint, setBreakpoint] = useState("lg");
+  const [showScrollHint, setShowScrollHint] = useState(true);
 
   // Animation frame and scroll tracking refs
   const animationFrameRef = useRef(null);
@@ -125,7 +127,13 @@ const GaleriSection = ({className}) => {
     (img) => {
       if (!img) return img;
       if (img.positions) {
-        const pos = img.positions[breakpoint] || img.positions.lg || img.positions.md || img.positions.sm;
+        const pos =
+          img.positions[breakpoint] ||
+          img.positions.lg ||
+          img.positions.md ||
+          img.positions.sm ||
+          img.positions.xs ||
+          img.positions.xxs;
         return Object.assign({}, img, {left: pos.left, top: pos.top, z: pos.z});
       }
       return img;
@@ -153,11 +161,6 @@ const GaleriSection = ({className}) => {
 
     const handleResize = () => {
       isMobileParallax = window.innerWidth < 1024;
-      if (isMobileParallax) {
-        for (const item of galleryRef.current) {
-          if (item) item.style.filter = "blur(0)";
-        }
-      }
     };
 
     // Optimized scroll handler using RAF
@@ -193,6 +196,14 @@ const GaleriSection = ({className}) => {
           isScrolledRef.current = newIsScrolled;
         }
 
+        // Show/hide scroll hint based on scroll position
+        const scrollThreshold = isMobileParallax ? 20 : 150;
+        if (currScroll > elementTop + scrollThreshold) {
+          setShowScrollHint(false);
+        } else if (currScroll <= elementTop) {
+          setShowScrollHint(true);
+        }
+
         // Process each gallery item
         for (const item of galleryRef.current) {
           if (!item) continue;
@@ -225,25 +236,23 @@ const GaleriSection = ({className}) => {
             item.style.transform = `translate3d(0,0,${result}px)`;
           }
 
-          // Blur effect for desktop only
-          if (!isMobileParallax) {
-            if (item.dataset.noBlur !== "true") {
-              let blurValue = "0px";
+          // Blur effect
+          if (item.dataset.noBlur !== "true") {
+            let blurValue = "0px";
 
-              if (result < -400) {
-                blurValue = "8px";
-              } else if (result < -200) {
-                const blurIntensity = (Math.abs(result) / 400) * 4;
-                blurValue = `${Math.min(blurIntensity, 4)}px`;
-              } else if (result < 0) {
-                const blurIntensity = (Math.abs(result) / 200) * 2;
-                blurValue = `${Math.min(blurIntensity, 2)}px`;
-              }
-
-              item.style.filter = `blur(${blurValue})`;
-            } else {
-              item.style.filter = "blur(0px)";
+            if (result < -400) {
+              blurValue = "8px";
+            } else if (result < -200) {
+              const blurIntensity = (Math.abs(result) / 400) * 4;
+              blurValue = `${Math.min(blurIntensity, 4)}px`;
+            } else if (result < 0) {
+              const blurIntensity = (Math.abs(result) / 200) * 2;
+              blurValue = `${Math.min(blurIntensity, 2)}px`;
             }
+
+            item.style.filter = `blur(${blurValue})`;
+          } else {
+            item.style.filter = "blur(0px)";
           }
         }
       });
@@ -267,11 +276,11 @@ const GaleriSection = ({className}) => {
     };
   }, [roundTransform]);
 
-  // Breakpoint updater (sm/md/lg) used to resolve positions
+  // Breakpoint updater (xxs/xs/sm/md/lg) used to resolve positions
   useEffect(() => {
     const updateBp = () => {
       const w = window.innerWidth;
-      setBreakpoint(w >= 1024 ? "lg" : w >= 768 ? "md" : "sm");
+      setBreakpoint(w >= 1024 ? "lg" : w >= 768 ? "md" : w >= 640 ? "sm" : w >= 480 ? "xs" : "xxs");
     };
 
     updateBp();
@@ -335,6 +344,38 @@ const GaleriSection = ({className}) => {
               <h2 className="text-3xl text-center text-wine-500 font-auromiya sm:text-4xl md:text-5xl lg:text-6xl">
                 Banda Neira
               </h2>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div
+              className={cn(
+                "absolute top-[calc(100%+7rem)] lg:top-[calc(100%+2.5rem)] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 transition-opacity duration-500",
+                showScrollHint ? "opacity-100" : "opacity-0 pointer-events-none"
+              )}
+            >
+              <div className="flex items-center gap-1 animate-pulse">
+                {/* Mouse Icon */}
+                <LuMouse className="w-6 h-6 text-wine-400" />
+                <span className="text-xs text-wine-400 font-plusjakartasans-medium sm:text-[1rem]">
+                  Scroll
+                </span>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                {/* Down Arrow */}
+                <svg
+                  className="w-4 h-4 text-wine-400 sm:w-5 sm:h-5 animate-bounce"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
 

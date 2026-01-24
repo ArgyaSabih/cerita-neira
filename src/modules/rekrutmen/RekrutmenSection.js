@@ -4,15 +4,17 @@ import {useEffect, useState, useRef} from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import {cn} from "@/utils/helpers/cn";
-import {FiDownload, FiFileText, FiCheckCircle, FiExternalLink} from "react-icons/fi";
+import {FiDownload, FiFileText, FiExternalLink} from "react-icons/fi";
+import {LuNotebookPen} from "react-icons/lu";
+import {IoBookOutline} from "react-icons/io5";
 import Link from "next/link";
 
 const documentsData = [
   {
     id: 1,
     title: "Template Surat Izin Orang Tua",
-    description: "Surat persetujuan dari orang tua/wali untuk mengikuti program KKN-PPM di Banda Neira.",
-    icon: <FiFileText className="w-6 h-6" />,
+    description: "Surat persetujuan dari orang tua/wali untuk mengikuti program KKN-PPM.",
+    icon: <LuNotebookPen className="w-6 h-6" />,
     downloadUrl: "#",
     color: "rose"
   },
@@ -20,9 +22,18 @@ const documentsData = [
     id: 2,
     title: "Template Surat Pernyataan Komitmen",
     description: "Surat pernyataan kesanggupan mengikuti seluruh rangkaian program KKN-PPM.",
-    icon: <FiCheckCircle className="w-6 h-6" />,
+    icon: <LuNotebookPen className="w-6 h-6" />,
     downloadUrl: "#",
     color: "teal"
+  },
+  {
+    id: 3,
+    title: "Guidebook KKN-PPM Cerita Neira",
+    description: "Panduan lengkap pendaftaran program KKN-PPM Cerita Neira.",
+    icon: <FiFileText className="w-7 h-7" />,
+    downloadUrl: "#",
+    color: "amber",
+    featured: true
   }
 ];
 
@@ -38,10 +49,16 @@ const DocumentCard = ({document, isVisible, index}) => {
       bg: "bg-teal-100",
       icon: "text-teal-500",
       button: "bg-teal-500 hover:bg-teal-600"
+    },
+    amber: {
+      bg: "bg-amber-100",
+      icon: "text-amber-400",
+      button: "bg-amber-400 hover:bg-amber-600"
     }
   };
 
   const colors = colorClasses[document.color];
+  const isFeatured = document.featured;
 
   return (
     <Link href={document.downloadUrl} target="_blank" rel="noopener noreferrer">
@@ -50,6 +67,7 @@ const DocumentCard = ({document, isVisible, index}) => {
           "group relative p-6 bg-white rounded-2xl shadow-lg",
           "transform transition-all duration-700 ease-out",
           "hover:shadow-xl hover:-translate-y-2",
+          isFeatured && "bg-gradient-to-tr from-amber-50/95 to-white",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}
         style={{transitionDelay: `${delay}ms`}}
@@ -79,8 +97,8 @@ const DocumentCard = ({document, isVisible, index}) => {
             colors.button
           )}
         >
-          <FiDownload className="w-4 h-4" />
-          Download Template
+          {isFeatured ? <IoBookOutline className="w-4 h-4" /> : <FiDownload className="w-4 h-4" />}
+          {isFeatured ? "Baca Guidebook" : "Download Template"}
         </div>
       </div>
     </Link>
@@ -198,7 +216,7 @@ const RekrutmenSection = ({className}) => {
           <div
             className={cn(
               "relative ",
-              "transform transition-all duration-500 h-full hover:scale-105 hover:shadow-lg hover:ring-2 ring-wine-500/50 hover:shadow-wine-500/50 rounded-3xl",
+              "transform transition-all duration-500 h-full hover:scale-105 lg:shadow-none lg:ring-0 shadow-md shadow-wine-500/50 ring-2 hover:shadow-lg hover:ring-2 ring-wine-500/50 hover:shadow-wine-500/50 rounded-3xl",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
             )}
           >
@@ -274,16 +292,6 @@ const RekrutmenSection = ({className}) => {
               {documentsData.map((doc, index) => (
                 <DocumentCard key={doc.id} document={doc} isVisible={isVisible} index={index} />
               ))}
-            </div>
-
-            {/* Additional Info */}
-            <div className="p-4 mt-8 bg-wine-100 rounded-xl">
-              <h4 className="mb-2 font-plusjakartasans-semibold text-wine-600">📌 Informasi Penting</h4>
-              <ul className="space-y-1 text-sm text-neutral-600 font-plusjakartasans-regular">
-                <li>• Pendaftaran dibuka hingga 31 Januari 2026</li>
-                <li>• Pastikan semua dokumen sudah lengkap</li>
-                <li>• Perhatikan persyaratan khusus di formulir</li>
-              </ul>
             </div>
           </div>
         </div>

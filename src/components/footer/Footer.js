@@ -195,10 +195,14 @@ const Footer = ({className}) => {
                 <FiPhone className="flex-shrink-0 w-5 h-5 text-teal-400" />
                 <div className="flex flex-col gap-1">
                   <span className="text-sm text-cream-200 font-plusjakartasans-regular">
-                    +62 895-3103-3551 (Nadia)
+                    Saintek & Soshum:
                   </span>
                   <span className="text-sm text-cream-200 font-plusjakartasans-regular">
-                    +62 819-4967-6325 (Denna)
+                    {"+62 895-3103-3551\u00A0\u00A0\u00A0(Nadia)"}
+                  </span>
+                  <span className="text-sm text-cream-200 font-plusjakartasans-regular">Agro & Medika:</span>
+                  <span className="text-sm text-cream-200 font-plusjakartasans-regular">
+                    {"+62 819-4967-6325\u00A0\u00A0\u00A0(Denna)"}
                   </span>
                 </div>
               </li>

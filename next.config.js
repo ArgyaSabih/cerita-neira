@@ -12,6 +12,7 @@ module.exports = {
       }
     ]
   },
+  allowedDevOrigins: ["local-origin.dev", "*.local-origin.dev"],
   compiler: {
     removeConsole: process.env.NODE_ENV === "production"
   },

@@ -137,7 +137,12 @@ const HeroSection = ({className}) => {
           >
             KKN-PPM UGM BANDA NEIRA
           </div>
-          <p className="text-sm text-center text-shadow-sm text-neutral-100 text-shadow-neutral-900 md:text-xl font-plusjakartasans-regular">
+          <p
+            className={cn(
+              "text-sm text-center transition-all duration-500 delay-1000 text-shadow-sm  text-neutral-100 text-shadow-neutral-900 md:text-xl font-plusjakartasans-regular",
+              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            )}
+          >
             Desa Rajawali & Desa TanaRatah, Kec. Banda, Maluku Tengah
           </p>
         </div>
