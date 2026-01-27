@@ -66,7 +66,7 @@ const HeroSection = ({className}) => {
               willChange: "transform, opacity"
             }}
           >
-            <Image src="/assets/lumba-2.webp" alt="Dolphin" fill className="object-contain" />
+            <Image src="/assets/lumba-2.webp" alt="Dolphin" fill sizes="(min-width: 768px) 192px, 112px" className="object-contain" />
           </div>
 
           <div
@@ -78,7 +78,7 @@ const HeroSection = ({className}) => {
               willChange: "transform, opacity"
             }}
           >
-            <Image src="/assets/bunga-2.webp" alt="Decorative Flower" fill className="object-contain" />
+            <Image src="/assets/bunga-2.webp" alt="Decorative Flower" fill sizes="(min-width: 768px) 112px, 80px" className="object-contain" />
           </div>
         </>
       }
@@ -113,7 +113,7 @@ const HeroSection = ({className}) => {
                 willChange: "transform, opacity"
               }}
             >
-              <Image src="/assets/bunga-4.webp" alt="Decorative Flower" fill className="object-contain" />
+              <Image src="/assets/bunga-4.webp" alt="Decorative Flower" fill sizes="(min-width: 768px) 112px, 56px" className="object-contain" />
             </div>
           </h1>
 

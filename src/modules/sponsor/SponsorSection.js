@@ -117,13 +117,13 @@ const SponsorSection = ({className}) => {
         className="absolute w-16 h-16 top-10 left-10 opacity-20"
         style={{transform: `translateY(${scrollProgress * 30}px) rotate(${scrollProgress * 20}deg)`}}
       >
-        <Image src="/assets/bunga-1.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-1.webp" alt="" fill sizes="64px" className="object-contain" />
       </div>
       <div
         className="absolute w-20 h-20 bottom-20 right-10 opacity-20"
         style={{transform: `translateY(${-scrollProgress * 40}px) rotate(${-scrollProgress * 15}deg)`}}
       >
-        <Image src="/assets/bunga-4.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-4.webp" alt="" fill sizes="80px" className="object-contain" />
       </div>
 
       {/* Container */}

@@ -327,10 +327,10 @@ const GaleriSection = ({className}) => {
                 "absolute -z-10 left-[-45px] top-[-95px] sm:left-[-40px] sm:top-[-105px] md:left-[-50px] md:top-[-130px] w-[120px] h-[120px] -rotate-12"
               )}
             >
-              <Image src="/assets/bunga-2.webp" alt="Bunga dekor" fill className="object-contain" />
+              <Image src="/assets/bunga-2.webp" alt="Bunga dekor" fill sizes="120px" className="object-contain" />
             </div>
             <div className="absolute -z-10 right-[-50px] bottom-[-50px] w-[110px] h-[110px] -rotate-[8deg]">
-              <Image src="/assets/bunga-4.webp" alt="Bunga dekor" fill className="object-contain" />
+              <Image src="/assets/bunga-4.webp" alt="Bunga dekor" fill sizes="110px" className="object-contain" />
             </div>
 
             <div
@@ -399,10 +399,10 @@ const GaleriSection = ({className}) => {
             >
               {/* Background flower ornaments for End Card */}
               <div className="absolute -z-10 left-[-70px] top-[-60px] w-[140px] h-[140px] -rotate-[45deg]">
-                <Image src="/assets/bunga-4.webp" alt="Bunga dekor" fill className="object-contain" />
+                <Image src="/assets/bunga-4.webp" alt="Bunga dekor" fill sizes="140px" className="object-contain" />
               </div>
               <div className="absolute -z-10 right-[-50px] bottom-[-40px] w-[100px] h-[100px]">
-                <Image src="/assets/bunga-5.webp" alt="Bunga dekor" fill className="object-contain" />
+                <Image src="/assets/bunga-5.webp" alt="Bunga dekor" fill sizes="100px" className="object-contain" />
               </div>
               <div
                 className={cn(

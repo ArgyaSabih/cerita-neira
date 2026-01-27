@@ -173,7 +173,7 @@ const RekrutmenSection = ({className}) => {
           transform: `translateY(${scrollProgress * 100}px) rotate(${scrollProgress * 75}deg)`
         }}
       >
-        <Image src="/assets/bunga-3.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-3.webp" alt="" fill sizes="96px" className="object-contain" />
       </div>
 
       <div
@@ -182,11 +182,11 @@ const RekrutmenSection = ({className}) => {
           transform: `translateY(${-scrollProgress * 200}px) rotate(${scrollProgress * 55}deg)`
         }}
       >
-        <Image src="/assets/bunga-5.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-5.webp" alt="" fill sizes="80px" className="object-contain" />
       </div>
 
       <div className="absolute z-10 -bottom-24 animate-spin-slow-reverse right-0 sm:right-[10%] w-44 h-44 opacity-30">
-        <Image src="/assets/bunga-4.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-4.webp" alt="" fill sizes="176px" className="object-contain" />
       </div>
 
       {/* Container */}

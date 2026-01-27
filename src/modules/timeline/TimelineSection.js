@@ -169,7 +169,7 @@ const TimelineSection = ({className}) => {
 
       {/* Floating decorations */}
       <div className="absolute w-28 h-28 md:w-48 md:h-48 animate-spin-slow lg:top-12 top-24 left-10 lg:left-40 opacity-30">
-        <Image src="/assets/bunga-1.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-1.webp" alt="" fill sizes="(min-width: 768px) 192px, 112px" className="object-contain" />
       </div>
 
       <div
@@ -178,7 +178,7 @@ const TimelineSection = ({className}) => {
           transform: `translateY(${-scrollProgress * 150}px) rotate(${-scrollProgress * 120}deg)`
         }}
       >
-        <Image src="/assets/bunga-4.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-4.webp" alt="" fill sizes="112px" className="object-contain" />
       </div>
 
       <div
@@ -187,7 +187,7 @@ const TimelineSection = ({className}) => {
           transform: `rotate(-20deg) translateY(${scrollProgress * 250}px)`
         }}
       >
-        <Image src="/assets/ring-pala.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/ring-pala.webp" alt="" fill sizes="(min-width: 768px) 384px, 240px" className="object-contain" />
       </div>
 
       {/* Container */}

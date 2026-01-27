@@ -109,7 +109,7 @@ const TentangSection = ({className}) => {
           transform: `rotate(${-decorRotate}deg) translateY(${-scrollY * 0.05}px)`
         }}
       >
-        <Image src="/assets/bunga-3.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-3.webp" alt="" fill sizes="96px" className="object-contain" />
       </div>
 
       <div
@@ -118,7 +118,7 @@ const TentangSection = ({className}) => {
           transform: `rotate(${decorRotate}deg) translateY(${-scrollY * 0.05}px)`
         }}
       >
-        <Image src="/assets/bunga-5.webp" alt="Decoration" fill className="object-contain" />
+        <Image src="/assets/bunga-5.webp" alt="Decoration" fill sizes="(min-width: 768px) 128px, 80px" className="object-contain" />
       </div>
 
       <div
@@ -127,7 +127,7 @@ const TentangSection = ({className}) => {
           transform: `rotate(${-decorRotate}deg)`
         }}
       >
-        <Image src="/assets/bunga-2.webp" alt="Decoration" fill className="object-contain" />
+        <Image src="/assets/bunga-2.webp" alt="Decoration" fill sizes="(min-width: 768px) 112px, 80px" className="object-contain" />
       </div>
 
       {/* Main Content Container */}
@@ -150,6 +150,7 @@ const TentangSection = ({className}) => {
                 src="/assets/img-tentang.webp"
                 alt="Banda Neira"
                 fill
+                sizes="(min-width: 1280px) 50vw, 100vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
@@ -161,7 +162,7 @@ const TentangSection = ({className}) => {
                 transform: `translateY(${-scrollY * 0.05}px)`
               }}
             >
-              <Image src="/assets/buah-pala.webp" alt="Buah Pala" fill className="object-contain" />
+              <Image src="/assets/buah-pala.webp" alt="Buah Pala" fill sizes="(min-width: 768px) 112px, 80px" className="object-contain" />
             </div>
           </div>
 

@@ -103,10 +103,10 @@ const Footer = ({className}) => {
 
       {/* Decorative Elements */}
       <div className="absolute w-20 h-20 top-20 right-10 opacity-10">
-        <Image src="/assets/bunga-1.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-1.webp" alt="" fill sizes="80px" className="object-contain" />
       </div>
       <div className="absolute w-16 h-16 bottom-20 left-10 opacity-10">
-        <Image src="/assets/bunga-3.webp" alt="" fill className="object-contain" />
+        <Image src="/assets/bunga-3.webp" alt="" fill sizes="64px" className="object-contain" />
       </div>
 
       {/* Main Footer Content */}
