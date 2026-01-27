@@ -158,7 +158,7 @@ const Navbar = ({className}) => {
 
             {/* CTA Button */}
             <Link
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdA1OSuUNl5uztTPqgBsJ_3ur9wjd08YAvLDeVEVAwUuBT16g/viewform?usp=send_form"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
@@ -243,7 +243,7 @@ const Navbar = ({className}) => {
                 </a>
               ))}
               <Link
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdA1OSuUNl5uztTPqgBsJ_3ur9wjd08YAvLDeVEVAwUuBT16g/viewform?usp=send_form"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(

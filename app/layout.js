@@ -19,7 +19,7 @@ import {
 export const metadata = getMetadata({
   title: "Cerita Neira | KKN-PPM UGM",
   description:
-    "Website resmi KKN-PPM UGM di Banda Neira, Maluku. Bergabunglah bersama kami dalam perjalanan bersejarah di Negeri Pala."
+    "Website resmi KKN-PPM UGM Banda Neira, Maluku Tengah. Bergabunglah bersama kami dalam perjalanan bersejarah di Negeri Pala."
 });
 
 export const viewport = {

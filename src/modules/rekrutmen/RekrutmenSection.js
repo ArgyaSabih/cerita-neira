@@ -15,7 +15,8 @@ const documentsData = [
     title: "Template Surat Izin Orang Tua",
     description: "Surat persetujuan dari orang tua/wali untuk mengikuti program KKN-PPM.",
     icon: <LuNotebookPen className="w-6 h-6" />,
-    downloadUrl: "#",
+    downloadUrl:
+      "https://docs.google.com/document/d/1CcAtQPPjIf9-Y6vcgpg6TA2ITtNpAwerBcop9fPoQWY/edit?usp=share_link",
     color: "rose"
   },
   {
@@ -23,7 +24,8 @@ const documentsData = [
     title: "Template Surat Pernyataan Komitmen",
     description: "Surat pernyataan kesanggupan mengikuti seluruh rangkaian program KKN-PPM.",
     icon: <LuNotebookPen className="w-6 h-6" />,
-    downloadUrl: "#",
+    downloadUrl:
+      "https://docs.google.com/document/d/13jxtjI7WCM6yJxsPQoZ96HDoiErG4RvEy24D5JzMBKw/edit?usp=sharing",
     color: "teal"
   },
   {
@@ -31,7 +33,7 @@ const documentsData = [
     title: "Guidebook KKN-PPM Cerita Neira",
     description: "Panduan lengkap pendaftaran program KKN-PPM Cerita Neira.",
     icon: <FiFileText className="w-7 h-7" />,
-    downloadUrl: "#",
+    downloadUrl: "https://drive.google.com/file/d/1gf0m6uWxbro-F61KrRazMpBOTlpY39CG/view",
     color: "amber",
     featured: true
   }
@@ -61,7 +63,7 @@ const DocumentCard = ({document, isVisible, index}) => {
   const isFeatured = document.featured;
 
   return (
-    <Link href={document.downloadUrl} target="_blank" rel="noopener noreferrer">
+    <Link href={document.downloadUrl} target="_blank" rel="noopener noreferrer" className="block">
       <div
         className={cn(
           "group relative p-6 bg-white rounded-2xl shadow-lg",
@@ -221,46 +223,21 @@ const RekrutmenSection = ({className}) => {
             )}
           >
             <Link
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdA1OSuUNl5uztTPqgBsJ_3ur9wjd08YAvLDeVEVAwUuBT16g/viewform?usp=send_form"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center h-full p-8 text-center shadow-lg bg-cream-100 rounded-3xl md:p-12"
             >
-              {/* QR Code Placeholder */}
+              {/* QR Code */}
               <div className="relative p-4 mx-auto bg-white shadow-inner w-60 h-60 sm:w-72 sm:h-72 lg:w-64 lg:h-64 xl:w-96 xl:h-96 rounded-2xl">
-                {/* QR Code SVG Placeholder */}
-                <div className="flex items-center justify-center w-full h-full bg-neutral-100 rounded-xl">
-                  <svg viewBox="0 0 100 100" className="w-full h-full p-2">
-                    {/* Simple QR-like pattern */}
-                    <rect x="10" y="10" width="20" height="20" fill="#7B1F59" />
-                    <rect x="70" y="10" width="20" height="20" fill="#7B1F59" />
-                    <rect x="10" y="70" width="20" height="20" fill="#7B1F59" />
-                    <rect x="15" y="15" width="10" height="10" fill="white" />
-                    <rect x="75" y="15" width="10" height="10" fill="white" />
-                    <rect x="15" y="75" width="10" height="10" fill="white" />
-                    <rect x="18" y="18" width="4" height="4" fill="#7B1F59" />
-                    <rect x="78" y="18" width="4" height="4" fill="#7B1F59" />
-                    <rect x="18" y="78" width="4" height="4" fill="#7B1F59" />
-                    {/* Random QR pattern */}
-                    <rect x="35" y="10" width="5" height="5" fill="#7B1F59" />
-                    <rect x="45" y="10" width="5" height="5" fill="#7B1F59" />
-                    <rect x="55" y="10" width="5" height="5" fill="#7B1F59" />
-                    <rect x="35" y="20" width="5" height="5" fill="#7B1F59" />
-                    <rect x="50" y="20" width="5" height="5" fill="#7B1F59" />
-                    <rect x="40" y="35" width="20" height="20" fill="#7B1F59" />
-                    <rect x="45" y="40" width="10" height="10" fill="white" />
-                    <rect x="48" y="43" width="4" height="4" fill="#7B1F59" />
-                    <rect x="35" y="60" width="5" height="5" fill="#7B1F59" />
-                    <rect x="45" y="65" width="5" height="5" fill="#7B1F59" />
-                    <rect x="55" y="60" width="5" height="5" fill="#7B1F59" />
-                    <rect x="70" y="40" width="5" height="5" fill="#7B1F59" />
-                    <rect x="80" y="45" width="5" height="5" fill="#7B1F59" />
-                    <rect x="10" y="40" width="5" height="5" fill="#7B1F59" />
-                    <rect x="20" y="50" width="5" height="5" fill="#7B1F59" />
-                    <rect x="70" y="70" width="20" height="20" fill="#46ABB7" />
-                    <rect x="75" y="75" width="10" height="10" fill="white" />
-                    <rect x="78" y="78" width="4" height="4" fill="#46ABB7" />
-                  </svg>
+                <div className="relative w-full h-full bg-white rounded-xl">
+                  <Image
+                    src="/assets/qr-gform-oprec.svg"
+                    alt="QR Code Pendaftaran"
+                    fill
+                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 288px, 384px"
+                    className="object-contain p-2"
+                  />
                 </div>
               </div>
 
