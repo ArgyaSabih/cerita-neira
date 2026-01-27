@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Repositori Website Open Recruitment Cerita Neira
 
-## Getting Started
+**Cerita Neira** adalah salah satu tim dari KKN-PPM UGM yang menempatkan masyarakat Banda Neira sebagai subjek perubahan. Berangkat dari integrasi inovasi teknologi digital, penguatan tata kelola pemerintahan desa, serta konservasi sumber daya alam dan revitalisasi sejarah Maluku Tengah, Cerita Neira hadir untuk memperkuat kapabilitas lokal di tengah arus globalisasi budaya. Cerita Neira tidak sekadar membawa program, tetapi membangun proses belajar bersama yang berpijak pada nilai kebersamaan, kemandirian, dan keberlanjutan.
 
-First, run the development server:
+Melalui pendekatan partisipatif, Cerita Neira berkontribusi dalam mendorong transformasi sosial yang kontekstual dan berdaya guna mulai dari peningkatan literasi digital, penguatan kapasitas aparatur dan warga desa, hingga penanaman kesadaran akan pentingnya merawat alam dan sejarah sebagai identitas Banda Neira. Dengan semangat kolaborasi dan kepedulian, Cerita Neira menulis kisah tentang perubahan yang tumbuh dari desa, dirawat bersama masyarakat, dan diarahkan pada masa depan yang mandiri serta berkelanjutan.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How To Run
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install all dependencies and run the development server using this command
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **yarn** (recommended)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  ```
+  yarn install
+  yarn dev
+  ```
 
-## Learn More
+- **npm**
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  ```
+  npm i
+  npm run dev
+  ```
