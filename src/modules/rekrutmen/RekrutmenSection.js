@@ -17,7 +17,9 @@ const documentsData = [
     icon: <LuNotebookPen className="w-6 h-6" />,
     downloadUrl:
       "https://docs.google.com/document/d/1CcAtQPPjIf9-Y6vcgpg6TA2ITtNpAwerBcop9fPoQWY/edit?usp=share_link",
-    color: "rose"
+    color: "rose",
+    disabled: true,
+    disabledInfo: "Tahap Pendaftaran tidak memerlukan Surat Izin Orang Tua dan Surat Pernyataan Komitmen"
   },
   {
     id: 2,
@@ -26,7 +28,9 @@ const documentsData = [
     icon: <LuNotebookPen className="w-6 h-6" />,
     downloadUrl:
       "https://docs.google.com/document/d/13jxtjI7WCM6yJxsPQoZ96HDoiErG4RvEy24D5JzMBKw/edit?usp=sharing",
-    color: "teal"
+    color: "teal",
+    disabled: true,
+    disabledInfo: "Tahap Pendaftaran tidak memerlukan Surat Izin Orang Tua dan Surat Pernyataan Komitmen"
   },
   {
     id: 3,
@@ -40,69 +44,90 @@ const documentsData = [
 ];
 
 const DocumentCard = ({document, isVisible, index}) => {
-  const delay = index * 200;
+  const delay = index * 150;
   const colorClasses = {
     rose: {
       bg: "bg-rose-100",
       icon: "text-rose-500",
-      button: "bg-rose-500 hover:bg-rose-600"
+      button: "bg-rose-500",
+      buttonHover: "group-hover:bg-rose-600 transition all duration-300 delay-300"
     },
     teal: {
       bg: "bg-teal-100",
       icon: "text-teal-500",
-      button: "bg-teal-500 hover:bg-teal-600"
+      button: "bg-teal-500",
+      buttonHover: "group-hover:bg-teal-600 transition all duration-300 delay-300"
     },
     amber: {
       bg: "bg-amber-100",
       icon: "text-amber-400",
-      button: "bg-amber-400 hover:bg-amber-600"
+      button: "bg-amber-400",
+      buttonHover: "group-hover:bg-amber-600 transition all duration-300 delay-300"
     }
   };
 
   const colors = colorClasses[document.color];
   const isFeatured = document.featured;
+  const isDisabled = document.disabled;
+
+  const cardContent = (
+    <div
+      className={cn(
+        "group relative p-6 bg-white rounded-2xl shadow-lg",
+        "transform transition-all duration-700 ease-out",
+        isDisabled ? "cursor-not-allowed opacity-60" : "hover:shadow-xl hover:-translate-y-2",
+        isFeatured && "bg-gradient-to-tr from-amber-50/95 to-white",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      )}
+      style={{transitionDelay: `${delay}ms`}}
+    >
+      {/* Icon */}
+      <div
+        className={cn(
+          "inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4",
+          colors.bg,
+          colors.icon
+        )}
+      >
+        {document.icon}
+      </div>
+
+      {/* Title */}
+      <h3 className="mb-2 text-lg font-plusjakartasans-bold text-wine-600">{document.title}</h3>
+
+      {/* Description */}
+      <p className="mb-4 text-sm text-neutral-600 font-plusjakartasans-regular">{document.description}</p>
+
+      {/* Disabled Info */}
+      {isDisabled && document.disabledInfo && (
+        <div className="p-3 mb-4 text-xs rounded-lg bg-amber-50 text-amber-700 font-plusjakartasans-medium">
+          ⚠️ {document.disabledInfo}
+        </div>
+      )}
+
+      {/* Download Button */}
+      <div
+        className={cn(
+          "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-plusjakartasans-semibold",
+          "transition-all duration-300",
+          isDisabled ? "opacity-60 cursor-not-allowed" : "",
+          colors.button,
+          !isDisabled && colors.buttonHover
+        )}
+      >
+        {isFeatured ? <IoBookOutline className="w-4 h-4" /> : <FiDownload className="w-4 h-4" />}
+        {isFeatured ? "Baca Guidebook" : "Download Template"}
+      </div>
+    </div>
+  );
+
+  if (isDisabled) {
+    return <div className="block">{cardContent}</div>;
+  }
 
   return (
     <Link href={document.downloadUrl} target="_blank" rel="noopener noreferrer" className="block">
-      <div
-        className={cn(
-          "group relative p-6 bg-white rounded-2xl shadow-lg",
-          "transform transition-all duration-700 ease-out",
-          "hover:shadow-xl hover:-translate-y-2",
-          isFeatured && "bg-gradient-to-tr from-amber-50/95 to-white",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        )}
-        style={{transitionDelay: `${delay}ms`}}
-      >
-        {/* Icon */}
-        <div
-          className={cn(
-            "inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4",
-            colors.bg,
-            colors.icon
-          )}
-        >
-          {document.icon}
-        </div>
-
-        {/* Title */}
-        <h3 className="mb-2 text-lg font-plusjakartasans-bold text-wine-600">{document.title}</h3>
-
-        {/* Description */}
-        <p className="mb-4 text-sm text-neutral-600 font-plusjakartasans-regular">{document.description}</p>
-
-        {/* Download Button */}
-        <div
-          className={cn(
-            "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-plusjakartasans-semibold",
-            "transition-all duration-300",
-            colors.button
-          )}
-        >
-          {isFeatured ? <IoBookOutline className="w-4 h-4" /> : <FiDownload className="w-4 h-4" />}
-          {isFeatured ? "Baca Guidebook" : "Download Template"}
-        </div>
-      </div>
+      {cardContent}
     </Link>
   );
 };
@@ -114,7 +139,9 @@ DocumentCard.propTypes = {
     description: PropTypes.string.isRequired,
     icon: PropTypes.node.isRequired,
     downloadUrl: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired
+    color: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    disabledInfo: PropTypes.string
   }).isRequired,
   isVisible: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired
@@ -256,7 +283,7 @@ const RekrutmenSection = ({className}) => {
           {/* Documents Section */}
           <div
             className={cn(
-              "transform transition-all duration-700 delay-400",
+              "transform transition-all duration-700 delay-300",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
             )}
           >
