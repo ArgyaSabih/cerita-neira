@@ -9,6 +9,7 @@ const timelineData = [
   {
     id: 1,
     date: "27 Januari - 4 Februari 2026",
+    extended: "5 - 7 Februari 2026",
     title: "Pembukaan Pendaftaran",
     description: "Pendaftaran peserta KKN-PPM Cerita Neira dibuka untuk seluruh mahasiswa UGM."
   },
@@ -49,7 +50,7 @@ const TimelineItem = ({item, index, isVisible, scrollProgress}) => {
       {/* Content Card */}
       <div
         className={cn(
-          "w-full md:w-5/12 p-6 bg-white rounded-2xl shadow-lg",
+          "w-full md:w-5/12 p-6 bg-white rounded-2xl shadow-lg relative overflow-visible",
           "transform transition-all duration-700 ease-out",
           "hover:shadow-xl hover:-translate-y-1",
           isLeft ? "md:mr-auto text-center md:text-right" : "text-center md:ml-auto md:text-left",
@@ -59,14 +60,52 @@ const TimelineItem = ({item, index, isVisible, scrollProgress}) => {
           transform: `translateY(${translateY * (isLeft ? 1 : -1) * 0.3}px)`
         }}
       >
+        {/* Extended Stamp - Absolute Position */}
+        {item.extended && (
+          <div className="absolute z-10 w-24 h-24 -left-6 -top-8 sm:w-32 sm:h-32 xl:w-40 xl:h-40 sm:-top-14 sm:-left-8">
+            <Image
+              src="/assets/extended.webp"
+              alt="Extended"
+              fill
+              sizes="auto"
+              className="object-contain transform -rotate-12"
+            />
+          </div>
+        )}
+
         {/* Date Badge */}
-        <div
-          className={cn(
-            "inline-block px-4 py-2 mb-3 text-lg md:text-[1rem] lg:text-[1.3rem] font-plusjakartasans-bold text-wine-500 bg-rose-100 rounded-full"
-          )}
-        >
-          {item.date}
-        </div>
+        {!item.extended && (
+          <div
+            className={cn(
+              "inline-block px-4 py-2 mb-2 text-lg md:text-[1rem] lg:text-[1.3rem] font-plusjakartasans-bold text-wine-500 bg-rose-100 rounded-full decoration-wine-400"
+            )}
+          >
+            {item.date}
+          </div>
+        )}
+
+        {/* Extended Date Badge */}
+        {item.extended && (
+          <div
+            className={cn(
+              "inline-block px-4 py-2 mb-2 text-lg md:text-[1rem] lg:text-[1.3rem] line-through decoration-2 font-plusjakartasans-bold text-wine-500 bg-rose-100 rounded-full decoration-wine-400"
+            )}
+          >
+            {item.date}
+          </div>
+        )}
+
+        {item.extended && (
+          <div className="flex justify-end w-full mb-2">
+            <div
+              className={cn(
+                "px-3 py-1.5 text-sm md:text-[0.9rem] lg:text-[1rem] font-plusjakartasans-bold text-red-600 bg-red-50 rounded-full border-2 border-red-200 mx-auto md:mx-0"
+              )}
+            >
+              {item.extended}
+            </div>
+          </div>
+        )}
 
         {/* Title */}
         <h3 className="mb-2 text-base md:text-[1rem] lg:text-lg font-plusjakartasans-semibold text-wine-600">
@@ -96,6 +135,7 @@ TimelineItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number.isRequired,
     date: PropTypes.string.isRequired,
+    extended: PropTypes.string,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired

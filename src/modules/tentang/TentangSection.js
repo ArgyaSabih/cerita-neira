@@ -162,6 +162,7 @@ const TentangSection = ({className}) => {
                 src="/assets/img-tentang.webp"
                 alt="Banda Neira"
                 fill
+                priority
                 sizes="(min-width: 1280px) 50vw, 100vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
