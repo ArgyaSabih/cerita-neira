@@ -62,13 +62,13 @@ const TimelineItem = ({item, index, isVisible, scrollProgress}) => {
       >
         {/* Extended Stamp - Absolute Position */}
         {item.extended && (
-          <div className="absolute z-10 w-24 h-24 -left-6 -top-8 sm:w-32 sm:h-32 xl:w-40 xl:h-40 sm:-top-14 sm:-left-8">
+          <div className="absolute z-10 w-28 h-28 -left-4 -top-8 sm:w-32 sm:h-32 xl:w-40 xl:h-40 sm:-top-14 sm:-left-8">
             <Image
               src="/assets/extended.webp"
               alt="Extended"
               fill
               sizes="auto"
-              className="object-contain transform -rotate-12"
+              className="object-contain transform -rotate-15 sm:-rotate-12"
             />
           </div>
         )}
