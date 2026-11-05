@@ -11,7 +11,8 @@ const navLinks = [
   {id: 2, name: "Tentang", href: "#tentang"},
   {id: 3, name: "Timeline", href: "#timeline"},
   {id: 4, name: "Rekrutmen", href: "#rekrutmen"},
-  {id: 5, name: "Galeri", href: "#galeri"}
+  {id: 5, name: "Galeri", href: "#galeri"},
+  {id: 6, name: "Sponsor", href: "#sponsor"}
 ];
 
 const Navbar = ({className}) => {
