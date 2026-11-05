@@ -5,33 +5,20 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import {cn} from "@/utils/helpers/cn";
 
-const sponsorsData = {
-  platinum: [{id: 1, name: "Universitas Gadjah Mada", logo: "/assets/bunga-1.webp"}],
-  gold: [
-    {id: 2, name: "Sponsor Gold 1", logo: "/assets/bunga-2.webp"},
-    {id: 3, name: "Sponsor Gold 2", logo: "/assets/bunga-3.webp"}
-  ],
-  silver: [
-    {id: 4, name: "Sponsor Silver 1", logo: "/assets/bunga-4.webp"},
-    {id: 5, name: "Sponsor Silver 2", logo: "/assets/bunga-5.webp"},
-    {id: 6, name: "Sponsor Silver 3", logo: "/assets/buah-pala.webp"}
-  ]
-};
+const sponsors = [
+  {id: 1, name: "Sponsor 1", logo: "/assets/sponsor/sponsor_1.webp"},
+  {id: 2, name: "Sponsor 2", logo: "/assets/sponsor/sponsor_2.webp"},
+  {id: 3, name: "Sponsor 3", logo: "/assets/sponsor/sponsor_3.webp"}
+];
 
-const SponsorCard = ({sponsor, tier, isVisible, index}) => {
-  const tierStyles = {
-    platinum: "w-32 h-32 md:w-40 md:h-40",
-    gold: "w-24 h-24 md:w-32 md:h-32",
-    silver: "w-20 h-20 md:w-24 md:h-24"
-  };
-
+const SponsorCard = ({sponsor, isVisible, index}) => {
   return (
     <div
       className={cn(
         "group relative bg-white rounded-2xl p-4 shadow-lg",
+        "w-40 h-40 md:w-56 md:h-56",
         "transform transition-all duration-500 ease-out",
         "hover:shadow-xl hover:-translate-y-2",
-        tierStyles[tier],
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       )}
       style={{transitionDelay: `${index * 100}ms`}}
@@ -41,13 +28,9 @@ const SponsorCard = ({sponsor, tier, isVisible, index}) => {
           src={sponsor.logo}
           alt={sponsor.name}
           fill
-          className="object-contain p-2 transition-all duration-300 grayscale group-hover:grayscale-0"
+          sizes="(min-width: 768px) 224px, 160px"
+          className="object-contain p-2"
         />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-wine-500/90 rounded-2xl group-hover:opacity-100">
-        <span className="px-2 text-xs text-center text-cream-100 font-plusjakartasans-medium">
-          {sponsor.name}
-        </span>
       </div>
     </div>
   );
@@ -59,7 +42,6 @@ SponsorCard.propTypes = {
     name: PropTypes.string.isRequired,
     logo: PropTypes.string.isRequired
   }).isRequired,
-  tier: PropTypes.oneOf(["platinum", "gold", "silver"]).isRequired,
   isVisible: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired
 };
@@ -136,9 +118,6 @@ const SponsorSection = ({className}) => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}
         >
-          <span className="inline-block px-4 py-1 mb-4 text-sm rounded-full bg-wine-500/10 text-wine-500 font-plusjakartasans-medium">
-            Didukung Oleh
-          </span>
           <h2 className="mb-4 text-4xl font-auromiya sm:text-5xl md:text-6xl text-wine-500">
             Sponsor & Partner
           </h2>
@@ -147,71 +126,11 @@ const SponsorSection = ({className}) => {
           </p>
         </div>
 
-        {/* Platinum Sponsors */}
-        <div className="mb-12">
-          <h3 className="mb-6 text-center font-plusjakartasans-semibold text-wine-500">Platinum Sponsor</h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            {sponsorsData.platinum.map((sponsor, index) => (
-              <SponsorCard
-                key={sponsor.id}
-                sponsor={sponsor}
-                tier="platinum"
-                isVisible={isVisible}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Gold Sponsors */}
-        <div className="mb-12">
-          <h3 className="mb-6 text-center font-plusjakartasans-semibold text-wine-500/80">Gold Sponsor</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {sponsorsData.gold.map((sponsor, index) => (
-              <SponsorCard
-                key={sponsor.id}
-                sponsor={sponsor}
-                tier="gold"
-                isVisible={isVisible}
-                index={index + sponsorsData.platinum.length}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Silver Sponsors */}
-        <div>
-          <h3 className="mb-6 text-center font-plusjakartasans-semibold text-wine-500/60">Silver Sponsor</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {sponsorsData.silver.map((sponsor, index) => (
-              <SponsorCard
-                key={sponsor.id}
-                sponsor={sponsor}
-                tier="silver"
-                isVisible={isVisible}
-                index={index + sponsorsData.platinum.length + sponsorsData.gold.length}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div
-          className={cn(
-            "mt-16 text-center",
-            "transform transition-all duration-700 delay-500",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          )}
-        >
-          <p className="mb-4 text-neutral-600 font-plusjakartasans-regular">
-            Tertarik menjadi sponsor atau partner?
-          </p>
-          <a
-            href="mailto:ceritaneira@ugm.ac.id"
-            className="inline-flex items-center gap-2 px-6 py-3 transition-colors bg-wine-500 text-cream-100 rounded-xl font-plusjakartasans-semibold hover:bg-wine-600"
-          >
-            Hubungi Kami
-          </a>
+        {/* Sponsors */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          {sponsors.map((sponsor, index) => (
+            <SponsorCard key={sponsor.id} sponsor={sponsor} isVisible={isVisible} index={index} />
+          ))}
         </div>
       </div>
     </section>
