@@ -33,7 +33,7 @@ const SplashIntro = ({onReveal, onComplete}) => {
     let cancelled = false;
     const ctx = gsap.context(() => {}, rootRef);
 
-    const timeout = new Promise((resolve) => setTimeout(resolve, 500));
+    const timeout = new Promise((resolve) => setTimeout(resolve, 1500));
     Promise.race([Promise.all(PHOTOS.map(preload)), timeout]).then(() => {
       if (cancelled) return;
 
