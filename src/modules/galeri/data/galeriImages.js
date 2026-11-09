@@ -1,7 +1,7 @@
 export const galeriImages = [
   // Layer 1: Foreground (closest to viewer)
   {
-    src: "galeri/01.webp",
+    src: "splashscreen/splash_1.webp",
     alt: "Banda Neira View",
     positions: {
       xxs: {left: "-7%", top: "22%", z: -80},
@@ -12,7 +12,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "galeri/02.webp",
+    src: "splashscreen/splash_2.webp",
     alt: "Tentang Banda Neira",
     positions: {
       xxs: {left: "68%", top: "28%", z: -140},
@@ -25,7 +25,7 @@ export const galeriImages = [
 
   // Layer 2: Near-mid
   {
-    src: "galeri/03.webp",
+    src: "splashscreen/splash_3.webp",
     alt: "Panorama Banda",
     positions: {
       xxs: {left: "72%", top: "68%", z: -360},
@@ -36,7 +36,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "galeri/04.webp",
+    src: "splashscreen/splash_4.webp",
     alt: "Keindahan Banda",
     positions: {
       xxs: {left: "-11%", top: "62%", z: -480},
@@ -49,7 +49,7 @@ export const galeriImages = [
 
   // Layer 3: Mid layer
   {
-    src: "galeri/05.webp",
+    src: "splashscreen/splash_5.webp",
     alt: "Pemandangan Neira",
     positions: {
       xxs: {left: "-13%", top: "32%", z: -680},
@@ -60,7 +60,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "galeri/06.webp",
+    src: "splashscreen/splash_6.webp",
     alt: "Warisan Banda",
     positions: {
       xxs: {left: "78%", top: "42%", z: -820},
@@ -73,7 +73,7 @@ export const galeriImages = [
 
   // Layer 4: Mid-far layer
   {
-    src: "galeri/07.webp",
+    src: "splashscreen/splash_7.webp",
     alt: "Cakrawala Banda",
     positions: {
       xxs: {left: "64%", top: "77%", z: -980},
@@ -84,7 +84,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "galeri/08.webp",
+    src: "splashscreen/splash_8.webp",
     alt: "Pesona Neira",
     positions: {
       xxs: {left: "-3%", top: "22%", z: -1150},
@@ -97,7 +97,7 @@ export const galeriImages = [
 
   // Layer 5: Far layer
   {
-    src: "galeri/09.webp",
+    src: "splashscreen/splash_9.webp",
     alt: "Langit Banda",
     positions: {
       xxs: {left: "74%", top: "26%", z: -1380},
@@ -108,7 +108,7 @@ export const galeriImages = [
     }
   },
   {
-    src: "galeri/10.webp",
+    src: "splashscreen/splash_10.webp",
     alt: "Keajaiban Neira",
     positions: {
       xxs: {left: "-12%", top: "30%", z: -1550},
