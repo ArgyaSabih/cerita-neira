@@ -6,14 +6,16 @@ import PropTypes from "prop-types";
 import {cn} from "@/utils/helpers/cn";
 import DefaultLayout from "@/components/DefaultLayout";
 
-const HeroSection = ({className}) => {
+const HeroSection = ({className, ready = true}) => {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    setIsLoaded(true);
+    if (ready) setIsLoaded(true);
+  }, [ready]);
 
+  useEffect(() => {
     const handleScroll = () => {
       requestAnimationFrame(() => {
         setScrollY(window.scrollY);
@@ -24,7 +26,6 @@ const HeroSection = ({className}) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Parallax calculations
   const backgroundY = scrollY * 0.3;
   const titleY = scrollY * 0.5;
   const titleScale = Math.max(0.8, 1 - scrollY * 0.0005);
@@ -170,7 +171,8 @@ const HeroSection = ({className}) => {
 };
 
 HeroSection.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  ready: PropTypes.bool
 };
 
 export default HeroSection;

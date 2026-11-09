@@ -7,12 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  {id: 1, name: "Beranda", href: "#beranda"},
-  {id: 2, name: "Tentang", href: "#tentang"},
-  {id: 3, name: "Timeline", href: "#timeline"},
-  {id: 4, name: "Rekrutmen", href: "#rekrutmen"},
-  {id: 5, name: "Galeri", href: "#galeri"},
-  {id: 6, name: "Sponsor", href: "#sponsor"}
+  {id: 1, name: "Tentang", href: "#tentang"},
+  {id: 2, name: "Timeline", href: "#timeline"},
+  {id: 3, name: "Rekrutmen", href: "#rekrutmen"},
+  {id: 4, name: "Galeri", href: "#galeri"},
+  {id: 5, name: "Sponsor", href: "#sponsor"}
 ];
 
 const Navbar = ({className}) => {
@@ -51,7 +50,6 @@ const Navbar = ({className}) => {
       const offset = 80;
       const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
 
-      // Custom smooth scroll with easing animation
       const startPosition = window.scrollY;
       const distance = targetPosition - startPosition;
       const duration = 800;
